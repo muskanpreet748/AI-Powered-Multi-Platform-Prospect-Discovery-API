@@ -53,9 +53,10 @@ Open **http://localhost:4000/docs** for interactive Swagger documentation.
 | Variable | Required | Purpose |
 |---|---|---|
 | `SERPER_API_KEY` | **Yes** | Google search results via [serper.dev](https://serper.dev) (2,500 free queries) |
-| `ANTHROPIC_API_KEY` | Recommended | Claude for query understanding and relevance review. Without it, a rule-based fallback is used. |
+| `LLM_PROVIDER` | No | `anthropic` (default, recommended for production) or `gemini` (free tier) |
+| `ANTHROPIC_API_KEY` / `GEMINI_API_KEY` | Recommended | Key for the selected provider. Without one, a rule-based fallback is used. |
 | `YOUTUBE_API_KEY` | Optional | Official YouTube Data API v3. Without it, YouTube is discovered via Google's index. |
-| `LLM_MODEL` | No | Defaults to `claude-haiku-5-5` (see [section 9](#9-llm-platform--model-research)) |
+| `LLM_MODEL` | No | Overrides the provider default (`claude-haiku-5-5` / `gemini-3.5-flash-lite`, see [section 9](#9-llm-platform--model-research)) |
 
 Other tuning variables (timeouts, limits, cache TTL, rate limit) are documented in [.env.example](.env.example).
 
@@ -73,7 +74,7 @@ python scripts/run_test_queries.py
 POST /prospect-discovery {"query": "..."}
    │
    ├─ 1. Validate input (Pydantic: 3–300 chars, must contain words, no unknown fields)
-   ├─ 2. Query understanding (Claude, structured JSON output; cached)
+   ├─ 2. Query understanding (LLM: Claude or Gemini, structured JSON output; cached)
    │      → interest, audience, city/state/country, target type, keywords, search terms
    │      (fallback: rule-based parser if the LLM is unavailable)
    ├─ 3. Search-query generation per platform (e.g. site:instagram.com football fan "Washington DC")
@@ -83,7 +84,7 @@ POST /prospect-discovery {"query": "..."}
    ├─ 6. Website enrichment: visit prospect websites (SSRF-safe, robots.txt-aware)
    │      to collect owner-published emails, phones, WhatsApp and social links
    ├─ 7. Duplicate detection (union-find on identity signals)
-   ├─ 8. Relevance: deterministic rules + ONE batched LLM review
+   ├─ 8. Relevance: deterministic rules + batched LLM review (40 candidates per call, in parallel)
    └─ 9. Pydantic-validated JSON response
 ```
 
@@ -96,7 +97,7 @@ app/
 ├── schemas.py                 Request/response models (public API contract)
 ├── models.py                  Internal dataclasses (RawProfile, ProspectGroup, SearchResult)
 ├── services/
-│   ├── llm_service.py         Anthropic SDK wrapper: structured outputs, errors, usage logging
+│   ├── llm_service.py         LLM providers (Claude via Anthropic SDK, Gemini via REST): structured outputs, errors, usage logging
 │   ├── query_service.py       Query understanding, rule-based fallback, search-query builder
 │   ├── search_service.py      Serper (Google) client: caching, concurrency limit, retries
 │   ├── profile_extractor.py   Search result / web page → profile + contacts
@@ -112,7 +113,7 @@ app/
     ├── http_client.py         Shared client, retries with backoff, SSRF-safe page fetching
     ├── cache.py               In-memory TTL cache
     └── rate_limiter.py        Per-client sliding-window limiter
-tests/test_prospect_discovery.py   45 offline tests (no network, no keys)
+tests/test_prospect_discovery.py   57 offline tests (no network, no keys)
 scripts/run_test_queries.py        Runs the 5 practical test queries
 ```
 
@@ -255,7 +256,7 @@ become one prospect. The display name is taken from the most authoritative profi
 Relevance is decided in two layers (`relevance_service.py`):
 
 1. **Rules (free, deterministic).** Whole-word matches of the LLM-generated keywords and of the city, state, aliases and country in the profile's public text. YouTube's channel country counts as country-level evidence.
-2. **LLM review, in one batched call for up to 40 candidates.** Claude receives only the collected public text and returns, per candidate ID, `audience_match`, `location_match` and `genuine_prospect` (false for news, listicles, directories, job ads and events), plus a short reason. Candidate text is placed in delimited tags and treated as untrusted data.
+2. **LLM review, in batches of 40 candidates (up to 120) that run in parallel.** The LLM receives only the collected public text and returns, per candidate ID, `audience_match`, `location_match` and `genuine_prospect` (false for news, listicles, directories, job ads and events), plus a short reason. Candidate text is placed in delimited tags and treated as untrusted data. Because the LLM reads context, it can **overrule a plain-text location match**: a founder whose surname is "London", or someone who only visited Dubai, is not marked as located there.
 
 A prospect is **kept only if the evidence supports the interest or audience**. A match on name or
 location alone is never enough. Score: 0.6 for interest, +0.3 for local location (or +0.15 for
@@ -296,11 +297,15 @@ Association rules:
 ## 9. LLM platform & model research
 
 The LLM does two small jobs per request:
-1. **Query understanding.** Extract structured parameters from one sentence.
-2. **Relevance classification.** Label up to 40 short profile texts in one batch.
+1. **Query understanding.** Extract structured parameters from one sentence (one call).
+2. **Relevance classification.** Judge short profile texts, 40 per call (1–3 parallel calls).
 
 Both are short, schema-bound extraction and classification tasks. They need reliable JSON, low
 latency and low cost far more than deep reasoning, which points to a provider's small, fast tier.
+
+The service supports two providers behind one interface (`LLM_PROVIDER`): **Anthropic Claude**
+(official SDK) and **Google Gemini** (REST). Both use JSON-schema structured outputs validated into
+the same Pydantic models.
 
 ### A. Comparison
 
@@ -308,67 +313,83 @@ Prices are standard-tier USD per 1M tokens, read from the official pricing pages
 ([Anthropic](https://platform.claude.com/docs/en/about-claude/pricing),
 [OpenAI](https://developers.openai.com/api/docs/pricing),
 [Google](https://aistudio.google.com/docs/pricing)).
-Cost per request uses the token estimate in section D.
+Cost per request uses the **measured** average token usage from section D (≈5,060 input / ≈3,350 output
+tokens). Token counts were measured on Gemini; other tokenizers differ somewhat, so the costs for
+other providers are estimates.
 
-| Provider | Model | Input / Output price | Est. cost per request | Context window | Structured JSON | Speed (estimated) | Suitability |
+| Provider | Model | Input / Output price | Cost per request | Context window | Structured JSON | Speed | Suitability |
 |---|---|---|---|---|---|---|---|
-| Anthropic | **Claude Haiku 5.5** (`claude-haiku-5-5`) | $0.10 / $0.50 (prompts ≤100K) | **≈ $0.0018** | 1M | JSON-schema structured outputs; SDK validates into Pydantic | Fast tier | **Recommended** |
-| Anthropic | Claude Sonnet 5.5 (`claude-sonnet-5-5`) | $2.00 / $10.00 | ≈ $0.037 | 1M | Same | Slower than Haiku | Overkill for extraction (≈20× the cost) |
-| OpenAI | GPT-6 Luna (`gpt-6-luna`) | $0.10 / $0.50 | ≈ $0.0018 | Not stated on pricing page (price tier changes above 272K) | JSON-schema structured outputs | Fast tier | Strong alternative / fallback |
-| OpenAI | GPT-5.4 mini (`gpt-5.4-mini`) | $0.75 / $4.50 | ≈ $0.016 | Not stated on pricing page | JSON-schema structured outputs | Fast tier | ~9× the cost, no benefit for this task |
-| Google | Gemini 2.5 Flash-Lite (`gemini-2.5-flash-lite`) | $0.10 / $0.40 | ≈ $0.0016 | 1M | `responseSchema` JSON mode | Fast tier | Cheapest; free tier; older generation |
-| Google | Gemini 3.1 Flash-Lite (`gemini-3.1-flash-lite`) | $0.25 / $1.50 | ≈ $0.0052 | Not stated on pricing page | `responseSchema` JSON mode | Fast tier | Good, ≈3× Haiku 5.5 |
+| Anthropic | **Claude Haiku 5.5** (`claude-haiku-5-5`) | $0.10 / $0.50 (prompts ≤100K) | **≈ $0.0022** | 1M | JSON-schema structured outputs; SDK validates into Pydantic | Fast tier (estimated) | **Recommended for production** |
+| Anthropic | Claude Sonnet 5.5 (`claude-sonnet-5-5`) | $2.00 / $10.00 | ≈ $0.044 | 1M | Same | Slower than Haiku (estimated) | Overkill for extraction (≈20× the cost) |
+| OpenAI | GPT-6 Luna (`gpt-6-luna`) | $0.10 / $0.50 | ≈ $0.0022 | Not stated on pricing page | JSON-schema structured outputs | Fast tier (estimated) | Strong alternative |
+| OpenAI | GPT-5.4 mini (`gpt-5.4-mini`) | $0.75 / $4.50 | ≈ $0.019 | Not stated on pricing page | JSON-schema structured outputs | Fast tier (estimated) | ~9× the cost, no benefit here |
+| Google | **Gemini 3.5 Flash-Lite** (`gemini-3.5-flash-lite`) | $0.30 / $2.50; **free tier** | ≈ $0.0099 (free tier: $0) | Not stated on pricing page | `responseJsonSchema` | **Measured:** 1.2–2.3 s for a short extraction | **Implemented**; used for the free demo |
+| Google | Gemini 3.1 Flash-Lite (`gemini-3.1-flash-lite`) | $0.25 / $1.50; free tier | ≈ $0.0063 | Not stated on pricing page | `responseJsonSchema` | **Measured:** 3.9–75 s on the free tier (very variable) | Too slow on the free tier |
+| Google | Gemini 2.5 Flash-Lite | $0.10 / $0.40 | — | — | — | — | **Not available to new users** (API returns 404) |
 
-> **Estimated, not measured.** The speed column reflects each provider's positioning of the model
-> tier. No head-to-head latency or accuracy benchmark was run for this submission. The service logs
-> the **measured** latency and token usage of every LLM call
-> (`LLM QueryUnderstanding | claude-haiku-5-5 | 1234 ms | input=… output=… tokens`), so real figures
-> can be collected from the server log when the test queries are run.
+**Measured vs estimated.** Only the Gemini models could be measured, because they were the
+providers with keys available for this submission. The Gemini figures come from direct API calls and
+from the server log of the five test queries ([`samples/server_log_test_queries.txt`](samples/server_log_test_queries.txt)).
+The Anthropic and OpenAI speed entries are the providers' tier positioning, not measurements. The
+service logs every LLM call's real latency and token usage
+(`LLM RelevanceBatch | gemini-3.5-flash-lite | 6402 ms | input=2688 output=1688 tokens`), so the same
+numbers can be collected for any provider by switching `LLM_PROVIDER`.
+
+**Observed quality** (Gemini 3.5 Flash-Lite, five test queries): every query was understood correctly,
+for example "Washington DC" → District of Columbia / `US` with aliases "DC" and "D.C.". The relevance
+review removed news pages, listicles and unrelated accounts that the keyword rules alone had kept, and
+it corrected misleading location matches. 3.1 Flash-Lite returned a weaker parse of the same query
+(city "Washington", state "DC").
 
 ### B. Best model selection
 
 | Need | Why Claude Haiku 5.5 fits |
 |---|---|
-| Query understanding | Short extraction with geography completion (e.g. "Washington DC" → District of Columbia, US). Well within a small model's ability. |
-| Search-query generation | Synonyms and keywords ("football" → "nfl", "soccer fan"). Templates combine them deterministically, so the LLM never writes raw search syntax. |
-| Relevance classification | Boolean judgements from short texts, batched in one call |
+| Query understanding | Short extraction with geography completion. Well within a small model's ability; verified on the free-tier equivalent (Gemini 3.5 Flash-Lite). |
+| Search-query generation | Synonyms and keywords ("restaurant" → "restaurateur", "hospitality"). Templates combine them deterministically, so the LLM never writes raw search syntax. |
+| Relevance classification | Boolean judgements from short texts, batched 40 per call |
 | Structured JSON | Native JSON-schema structured outputs. The Anthropic SDK's `messages.parse()` returns a validated Pydantic object, so there is no fragile string parsing. |
-| Speed | Small, fast tier with low effort configured. Two calls per request. |
-| Cost | Tied for the lowest output price among current-generation models compared (only the older Gemini 2.5 Flash-Lite is cheaper) |
+| Speed | Small, fast tier with low effort configured |
+| Cost | Lowest price tier among current-generation models: ≈4.5× cheaper than Gemini 3.5 Flash-Lite at paid rates, and tied with GPT-6 Luna |
+| Reliability | During testing, the Gemini **free tier** returned HTTP 503 "overloaded" on 8 of 14 calls (all recovered through retries). A production service needs a paid tier anyway, and on paid tiers Haiku 5.5 is the cheapest. |
 
 ### C. Cost optimization (implemented)
 
 | Technique | Where |
 |---|---|
-| **One batched relevance call** instead of one call per profile (≈40× fewer calls) | `relevance_service.llm_verdicts` |
+| **Batched relevance calls**: 40 candidates per call instead of one call per profile (≈40× fewer calls), run in parallel | `relevance_service.evaluate` |
 | **Deterministic work stays deterministic**: URL detection, contact extraction, phone and email validation and deduplication use regex, libphonenumber and union-find, not the LLM | `utils/`, `deduplication_service` |
-| **Rule pre-ranking**: only the 40 most promising candidates are sent to the LLM | `MAX_LLM_RELEVANCE_CANDIDATES` |
+| **Rule pre-ranking and a cap**: at most 120 candidates reach the LLM, best rule score first | `MAX_LLM_RELEVANCE_CANDIDATES` |
 | **Compact prompts**: candidate text truncated to 500 characters; short system prompts | `relevance_service`, `query_service` |
-| **Caching**: query understanding and search results cached for 1 hour (TTL), so repeated queries cost nothing | `utils/cache.py` |
-| **Low effort setting** for these simple tasks (fewer reasoning tokens) | `llm_service.py` (`output_config={"effort": "low"}`) |
-| **Small model** for the whole pipeline. Larger models are unnecessary for schema-bound classification. | `LLM_MODEL` |
-| **Graceful degradation**: on LLM failure the rule-based path is used instead of retrying indefinitely | `query_service`, `relevance_service` |
+| **Caching**: query understanding and search results cached for 1 hour, so repeated queries cost nothing. Rule-based fallback answers are *not* cached, so the LLM is retried after an outage. | `utils/cache.py`, `query_service` |
+| **Low effort setting** on Claude for these simple tasks (fewer reasoning tokens) | `llm_service.py` |
+| **Small model** for the whole pipeline | `LLM_MODEL` |
+| **Graceful degradation**: retries with backoff on overloads, then the rule-based path instead of failing the request | `http_client`, `query_service`, `relevance_service` |
 
 Not applied, and why: *prompt caching* (the system prompts are shorter than the minimum cacheable
 prefix) and the *Batch API* (50% cheaper, but asynchronous, which doesn't fit a synchronous endpoint).
 
+**Next saving identified from the measurements:** the per-candidate `reason` text accounts for most
+of the output tokens, and output tokens cost 5× more than input. Shortening it, or returning it only
+for kept prospects, would cut LLM cost further.
+
 **Note:** at these prices the **search API, not the LLM, is the dominant cost**. About 16 Serper
-searches per request at ≈$0.001 each is ≈$0.016, against ≈$0.002 for the LLM. That is why search
-results are cached and queries per platform are capped (`MAX_QUERIES_PER_PLATFORM`). YouTube Data API
-usage is about 201 quota units per request (10,000 free per day).
+searches per request at ≈$0.001 each is ≈$0.016, against ≈$0.002 for Claude Haiku 5.5. That is why
+search results are cached and queries per platform are capped (`MAX_QUERIES_PER_PLATFORM`). YouTube
+Data API usage is about 201 quota units per request (10,000 free per day).
 
 ### D. Final recommendation
 
 | Item | Value |
 |---|---|
 | **Recommended provider** | Anthropic |
-| **Recommended model** | Claude Haiku 5.5 (`claude-haiku-5-5`) |
-| **Estimated input tokens / request** | ≈ 6,900 (understanding ≈ 600 incl. schema; relevance ≈ 6,300 for 40 candidates) |
-| **Estimated output tokens / request** | ≈ 2,300 (understanding ≈ 300; relevance ≈ 2,000 incl. any reasoning tokens) |
-| **Estimated LLM cost / request** | 6,900 × $0.10/1M + 2,300 × $0.50/1M ≈ **$0.0018** (≈ $1.80 per 1,000 requests) |
-| **Expected LLM time** | Estimated ~1–3 s per call, two calls per request. Total request time is dominated by search and website fetching (bounded by `PLATFORM_TIMEOUT_SECONDS`). |
-| **Why** | Lowest price tier among current models, a 1M context, schema-enforced JSON with Pydantic validation in the official SDK, and enough capability for extraction and classification |
-| **Fallback model** | GPT-6 Luna (`gpt-6-luna`) at the same price, from a different vendor, for resilience against a provider outage. For zero-cost development, Gemini 2.5 Flash-Lite (free tier). In the current code, the fallback on LLM failure is the built-in rule-based parser and scorer, so the API keeps working. |
+| **Recommended model** | Claude Haiku 5.5 (`claude-haiku-5-5`), `LLM_PROVIDER=anthropic` |
+| **Input tokens / request (measured)** | 2,306–8,333, average ≈ 5,060 (understanding ≈ 215; each relevance batch ≈ 650–4,000) |
+| **Output tokens / request (measured)** | 1,877–5,653, average ≈ 3,350 (understanding ≈ 180; each relevance batch ≈ 290–2,500) |
+| **LLM cost / request** | 5,060 × $0.10/1M + 3,350 × $0.50/1M ≈ **$0.0022** (≈ $2.20 per 1,000 requests) |
+| **Response time (measured on Gemini 3.5 Flash-Lite)** | Query understanding: median 2.2 s (1.5–14.6 s including overload retries). Relevance batch: median 6.4 s (1.8–20.3 s). Whole request: 21–41 s, mostly spent searching 9 platforms. Haiku 5.5 was not measured. |
+| **Why** | Cheapest current-generation tier, 1M context, schema-enforced JSON with Pydantic validation in the official SDK, and enough capability for extraction and classification |
+| **Fallback model** | Gemini 3.5 Flash-Lite, already implemented: set `LLM_PROVIDER=gemini`. It also powers the free demo deployment. GPT-6 Luna is an equally priced alternative vendor. If the active LLM fails, the built-in rule-based parser and scorer keep the API working. |
 | **Balancing approach** | Use the small model only where language understanding adds value (intent, context-aware relevance). Do everything else deterministically. Batch, cache and cap. Move to a larger model only if a labelled evaluation shows the small one misclassifies. |
 
 ---
@@ -379,22 +400,40 @@ usage is about 201 quota units per request (10,000 free per day).
 pytest -q
 ```
 
-45 offline tests (no network, no API keys) cover:
-- email, phone and WhatsApp validation
+57 offline tests (no network, no API keys) cover:
+- email, phone and WhatsApp validation, including dropping numbers from other countries
 - profile-URL detection and rejection of posts, groups, search pages and invalid numbers
-- name extraction
-- rule-based query understanding and LLM-failure fallback
+- names: post text is never used as a name; "Contact …" prefixes are removed
+- rule-based query understanding, LLM-failure fallback, and not caching fallback answers
+- both LLM providers' error handling (blocked, cut off, invalid JSON, bad key, rate limit)
 - search-query injection
 - deduplication: same name not merged; merging by shared contact, cross-link, and handle plus name
-- relevance filtering
+- relevance: the LLM rejecting non-genuine profiles and overruling misleading location matches, and batched review of all candidates
 - the SSRF guard
 - input validation
 - an end-to-end API run with fake search results: consolidation, website enrichment, listicle filtering
 - isolation of a single platform failure, and the all-sources-failed path
 
-Live results: run `python scripts/run_test_queries.py` with keys configured. The JSON for each of the
-five practical queries is written to [`samples/`](samples/), and screenshots of the Swagger UI and
-responses are in [`screenshots/`](screenshots/).
+### Live results (25 Nov 2026, Gemini 3.5 Flash-Lite, all platforms enabled)
+
+Produced by `python scripts/run_test_queries.py`. Full JSON responses are in [`samples/`](samples/)
+and the server log is in [`samples/server_log_test_queries.txt`](samples/server_log_test_queries.txt).
+
+| Query | Raw profiles found | After merging duplicates | Relevant prospects returned | Server time |
+|---|---:|---:|---:|---:|
+| Football lovers in Washington DC in USA | 80 | 69 | 22 | 19.9 s |
+| Digital marketing agency owners in New York USA | 107 | 93 | 50 (cap: `MAX_PROSPECTS`) | 40.8 s |
+| Startup founders in London UK | 37 | 37 | 10 | 28.2 s |
+| Cricket lovers in Ahmedabad India | 33 | 31 | 7 | 21.1 s |
+| Restaurant owners in Dubai UAE | 49 | 48 | 18 | 30.0 s |
+
+The gap between "after merging" and "relevant" is the relevance filter removing profiles that the
+public text does not support (news pages, unrelated accounts, wrong audience).
+
+Every returned prospect in these runs was reviewed by the LLM (`"evaluated_by": "rules+llm"`). Results
+change between runs because search indexes change.
+
+Screenshots of the Swagger UI and responses are in [`screenshots/`](screenshots/).
 
 ---
 
@@ -407,9 +446,11 @@ docker build -t prospect-discovery .
 docker run -p 4000:4000 --env-file .env prospect-discovery
 ```
 
-**Render.com (free tier)**: New → Blueprint → select this repository ([render.yaml](render.yaml)),
-then enter `SERPER_API_KEY`, `ANTHROPIC_API_KEY` and `YOUTUBE_API_KEY` in the dashboard.
-The health check is `/health` and the docs are at `https://<your-app>.onrender.com/docs`.
+**Render.com (free tier)**: New → Blueprint → select this repository ([render.yaml](render.yaml)).
+The blueprint sets `LLM_PROVIDER=gemini` for a free deployment. Enter `SERPER_API_KEY`,
+`GEMINI_API_KEY` and `YOUTUBE_API_KEY` in the dashboard. For production, set `LLM_PROVIDER=anthropic`
+and `ANTHROPIC_API_KEY` instead. The health check is `/health` and the docs are at
+`https://<your-app>.onrender.com/docs`.
 
 ---
 
@@ -417,7 +458,8 @@ The health check is `/health` and the docs are at `https://<your-app>.onrender.c
 
 - **Coverage depends on Google's public index.** LinkedIn, Instagram, Facebook, X and Threads offer no permitted people-search API, so only profiles that are public and indexed can be found. Snippets can be slightly out of date.
 - **Location is often absent** from public snippets. Such prospects are returned with `location: null` and `status: "likely"` rather than having a location guessed.
-- **WhatsApp** contacts exist only where someone published a WhatsApp link or labelled number.
+- **WhatsApp** contacts exist only where someone published a WhatsApp link or labelled number, so many results have none.
+- **The Gemini free tier is often overloaded** (HTTP 503). Retries absorbed every overload in the test run, but when retries are exhausted the request falls back to rules for that step. A paid tier avoids this.
 - **The cache and rate limiter are in-memory** (per process). A multi-instance deployment would move them to Redis.
 - **DNS rebinding:** the SSRF guard validates the resolved IPs before each request. A hostile DNS server could still answer differently on the connection itself. Fully closing this needs IP pinning at the connection layer or an egress proxy.
 - **No labelled accuracy benchmark.** Relevance quality is protected by evidence requirements and schema validation, but it has not been measured against a hand-labelled set.
