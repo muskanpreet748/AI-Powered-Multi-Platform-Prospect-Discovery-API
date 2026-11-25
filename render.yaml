@@ -1,0 +1,17 @@
+# Render.com blueprint: New -> Blueprint -> select this repository.
+# API keys are entered in the Render dashboard (sync: false), never committed.
+services:
+  - type: web
+    name: prospect-discovery-api
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: SERPER_API_KEY
+        sync: false
+      - key: YOUTUBE_API_KEY
+        sync: false
+      - key: LLM_MODEL
+        value: claude-haiku-5-5
