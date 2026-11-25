@@ -46,9 +46,11 @@ async def understand_query(query: str) -> tuple[QueryUnderstanding, str]:
     result: tuple[QueryUnderstanding, str]
     if llm.enabled:
         try:
+            # Escape angle brackets so the query cannot close the <query> tag (prompt injection).
+            safe_query = query.replace("<", "‹").replace(">", "›")
             parsed = await llm.structured(
                 system=SYSTEM_PROMPT,
-                user=f"<query>{query}</query>",
+                user=f"<query>{safe_query}</query>",
                 output_model=QueryUnderstanding,
                 max_tokens=2000,
             )
@@ -141,7 +143,10 @@ def rule_based_understanding(query: str) -> QueryUnderstanding:
 # Search-query generation
 # --------------------------------------------------------------------------- #
 def location_phrase(u: QueryUnderstanding) -> str | None:
-    return u.location.city or u.location.state or u.location.country
+    place = u.location.city or u.location.state or u.location.country
+    if not place:
+        return None
+    return sanitize_search_term(place) or None  # strip quotes/operators
 
 
 def build_search_queries(u: QueryUnderstanding, site_filter: str = "", extra: str = "") -> list[str]:

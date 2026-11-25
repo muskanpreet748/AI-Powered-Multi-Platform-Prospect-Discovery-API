@@ -69,7 +69,7 @@ class LLMService:
             raise LLMError(f"LLM API error (status {exc.status_code})") from exc
         except anthropic.APIConnectionError as exc:
             raise LLMError("could not reach the LLM API") from exc
-        except ValidationError as exc:
+        except (ValidationError, ValueError) as exc:  # malformed JSON or schema mismatch
             raise LLMError("LLM returned data that did not match the schema") from exc
 
         elapsed_ms = (time.perf_counter() - started) * 1000

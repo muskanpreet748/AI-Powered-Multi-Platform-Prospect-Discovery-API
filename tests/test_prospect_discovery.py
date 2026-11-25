@@ -75,6 +75,15 @@ def test_clean_profile_name():
 # --------------------------------------------------------------------------- #
 # Query understanding
 # --------------------------------------------------------------------------- #
+def test_search_queries_cannot_be_hijacked():
+    from app.services.query_service import _clean, build_search_queries
+    u = rule_based_understanding('Cricket fans in Ahmedabad" site:evil.com')
+    queries = build_search_queries(_clean(u, "q"), "site:instagram.com")
+    for q in queries:
+        assert q.count("site:") == 1      # only our own site filter survives
+        assert q.count('"') == 2          # only our own quotes around the location
+
+
 def test_rule_based_understanding():
     u = rule_based_understanding("Football lovers in Washington DC in USA")
     assert u.interest == "Football"
