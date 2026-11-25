@@ -61,7 +61,10 @@ async def understand_query(query: str) -> tuple[QueryUnderstanding, str]:
     else:
         result = (_clean(rule_based_understanding(query), query), "rule_based")
 
-    _cache.set(cache_key, result)
+    # Cache only real LLM answers: after a temporary LLM outage, the next
+    # request for the same query should try the LLM again.
+    if result[1] == "llm":
+        _cache.set(cache_key, result)
     return result
 
 
@@ -78,7 +81,10 @@ def _clean(u: QueryUnderstanding, query: str) -> QueryUnderstanding:
         return out[:limit]
 
     code = (u.location.country_code or "").strip().upper()
-    u.location.country_code = code if re.fullmatch(r"[A-Z]{2}", code) else None
+    if not re.fullmatch(r"[A-Z]{2}", code):
+        # e.g. the model answered "USA" instead of "US": map common names to ISO codes
+        code = _COUNTRIES.get(code.lower()) or _COUNTRIES.get((u.location.country or "").strip().lower(), "")
+    u.location.country_code = code or None
     u.keywords = unique(u.keywords + [u.interest], 10)
     u.search_terms = unique(u.search_terms, 3) or unique([u.audience, query], 1)
     u.location_aliases = unique(u.location_aliases, 6, lower=False)
