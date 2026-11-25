@@ -117,7 +117,7 @@ def test_rule_based_understanding():
 
 def test_llm_failure_falls_back_to_rules(monkeypatch):
     llm = get_llm_service()
-    monkeypatch.setattr(llm, "client", object())  # pretend the LLM is configured
+    monkeypatch.setattr(llm, "_api_key", "fake-key")  # pretend the LLM is configured
 
     async def failing(**kwargs):
         raise LLMError("simulated outage")
@@ -126,6 +126,69 @@ def test_llm_failure_falls_back_to_rules(monkeypatch):
     understanding, source = asyncio.run(understand_query("Restaurant owners in Dubai UAE"))
     assert source == "rule_based"
     assert understanding.location.country_code == "AE"
+
+    # The fallback answer must not be cached: once the LLM recovers, it is used again.
+    async def working(**kwargs):
+        return understanding.model_copy(update={"interest": "Restaurants"})
+
+    monkeypatch.setattr(llm, "structured", working)
+    _, source = asyncio.run(understand_query("Restaurant owners in Dubai UAE"))
+    assert source == "llm"
+
+
+def _fake_gemini(monkeypatch, status: int, payload: dict):
+    """Make the Gemini provider receive a canned HTTP response."""
+    import httpx
+
+    from app.services import llm_service
+
+    llm = get_llm_service()
+    monkeypatch.setattr(llm, "provider", "gemini")
+    monkeypatch.setattr(llm, "_api_key", "fake-key")
+
+    async def fake_request(method, url, **kwargs):
+        assert kwargs["headers"]["x-goog-api-key"] == "fake-key"  # key sent in a header
+        assert "key=" not in url                                   # never in the URL
+        return httpx.Response(status, json=payload)
+
+    monkeypatch.setattr(llm_service, "request_with_retries", fake_request)
+    return llm
+
+
+def test_gemini_structured_output(monkeypatch):
+    from app.services.relevance_service import RelevanceBatch
+    answer = '{"verdicts": [{"id": 0, "audience_match": true, "location_match": false, "genuine_prospect": true, "reason": "fan bio"}]}'
+    llm = _fake_gemini(monkeypatch, 200, {
+        "candidates": [{"finishReason": "STOP", "content": {"parts": [{"text": answer}]}}],
+        "usageMetadata": {"promptTokenCount": 100, "candidatesTokenCount": 20},
+    })
+    result = asyncio.run(llm.structured(system="s", user="u", output_model=RelevanceBatch))
+    assert result.verdicts[0].audience_match is True
+
+
+@pytest.mark.parametrize("status, payload, message", [
+    (200, {"candidates": []}, "no output"),
+    (200, {"candidates": [{"finishReason": "MAX_TOKENS", "content": {"parts": []}}]}, "cut off"),
+    (200, {"candidates": [{"finishReason": "SAFETY"}]}, "declined"),
+    (200, {"candidates": [{"finishReason": "STOP", "content": {"parts": [{"text": "not json"}]}}]}, "schema"),
+    (403, {}, "invalid Gemini API key"),
+    (429, {}, "rate limit"),
+])
+def test_gemini_errors_become_llm_errors(monkeypatch, status, payload, message):
+    from app.services.relevance_service import RelevanceBatch
+    llm = _fake_gemini(monkeypatch, status, payload)
+    with pytest.raises(LLMError, match=message):
+        asyncio.run(llm.structured(system="s", user="u", output_model=RelevanceBatch))
+
+
+def test_country_name_is_mapped_to_iso_code():
+    from app.schemas import Location, QueryUnderstanding
+    from app.services.query_service import _clean
+    u = QueryUnderstanding(is_valid_query=True, interest="Football", audience="Football lovers",
+                           location=Location(city="Washington DC", country="USA", country_code="USA"),
+                           target_type="individual", keywords=["football"], search_terms=["football fan"],
+                           location_aliases=[])
+    assert _clean(u, "q").location.country_code == "US"
 
 
 # --------------------------------------------------------------------------- #

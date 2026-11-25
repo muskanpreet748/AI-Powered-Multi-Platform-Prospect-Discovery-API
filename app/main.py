@@ -16,6 +16,7 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from app.config import get_settings
 from app.schemas import ErrorResponse, ProspectRequest, ProspectResponse
+from app.services.llm_service import get_llm_service
 from app.services.prospect_service import DiscoveryError, discover_prospects
 from app.utils.http_client import close_http_client
 from app.utils.rate_limiter import SlidingWindowRateLimiter
@@ -37,8 +38,9 @@ MAX_BODY_BYTES = 10_000
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
+    llm = get_llm_service()
     logger.info("Starting | LLM: %s | search: %s | YouTube API: %s",
-                settings.llm_model if settings.llm_enabled else "disabled (rule-based fallback)",
+                f"{llm.provider}/{llm.model}" if llm.enabled else "disabled (rule-based fallback)",
                 "enabled" if settings.search_enabled else "disabled",
                 "enabled" if settings.youtube_api_enabled else "disabled")
     yield
@@ -106,6 +108,7 @@ async def health():
     return {
         "status": "ok",
         "llm_configured": settings.llm_enabled,
+        "llm_provider": settings.llm_provider,
         "search_configured": settings.search_enabled,
         "youtube_api_configured": settings.youtube_api_enabled,
     }

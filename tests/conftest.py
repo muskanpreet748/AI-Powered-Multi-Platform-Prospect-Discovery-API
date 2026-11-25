@@ -67,7 +67,7 @@ def isolated_environment(monkeypatch):
     monkeypatch.setattr(settings, "serper_api_key", SecretStr("test-key"))
     monkeypatch.setattr(settings, "youtube_api_key", None)
     monkeypatch.setattr(settings, "anthropic_api_key", None)
-    monkeypatch.setattr(get_llm_service(), "client", None)  # LLM off unless a test enables a fake
+    monkeypatch.setattr(get_llm_service(), "_api_key", None)  # LLM off unless a test enables a fake
     monkeypatch.setattr(main.rate_limiter, "max_requests", 1000)
     query_service._cache.clear()
     search_service._cache.clear()

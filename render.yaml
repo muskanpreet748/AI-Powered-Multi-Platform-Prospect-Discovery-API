@@ -7,11 +7,13 @@ services:
     plan: free
     healthCheckPath: /health
     envVars:
+      - key: LLM_PROVIDER
+        value: gemini          # free tier; set to "anthropic" + ANTHROPIC_API_KEY for production
+      - key: GEMINI_API_KEY
+        sync: false
       - key: ANTHROPIC_API_KEY
         sync: false
       - key: SERPER_API_KEY
         sync: false
       - key: YOUTUBE_API_KEY
         sync: false
-      - key: LLM_MODEL
-        value: claude-haiku-5-5

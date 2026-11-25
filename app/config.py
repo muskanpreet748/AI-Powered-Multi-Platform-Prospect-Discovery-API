@@ -7,6 +7,7 @@ settings object is ever printed or logged by accident.
 """
 
 from functools import lru_cache
+from typing import Literal
 
 from pydantic import SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -15,9 +16,11 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
-    # LLM
+    # LLM - "anthropic" (recommended for production) or "gemini" (free tier)
+    llm_provider: Literal["anthropic", "gemini"] = "anthropic"
+    llm_model: str | None = None  # empty = the provider's default model
     anthropic_api_key: SecretStr | None = None
-    llm_model: str = "claude-haiku-5-5"
+    gemini_api_key: SecretStr | None = None
     llm_timeout_seconds: float = 30.0
 
     # Discovery sources
@@ -41,8 +44,12 @@ class Settings(BaseSettings):
     log_level: str = "INFO"
 
     @property
+    def llm_api_key(self) -> SecretStr | None:
+        return self.anthropic_api_key if self.llm_provider == "anthropic" else self.gemini_api_key
+
+    @property
     def llm_enabled(self) -> bool:
-        return bool(self.anthropic_api_key and self.anthropic_api_key.get_secret_value())
+        return bool(self.llm_api_key and self.llm_api_key.get_secret_value())
 
     @property
     def search_enabled(self) -> bool:
