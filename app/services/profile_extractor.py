@@ -43,6 +43,9 @@ _NON_PROSPECT_DOMAINS = (
     "glassdoor.", "clutch.co", "crunchbase.com", "eventbrite.", "meetup.com", "medium.com",
     "google.", "amazon.", "apple.com", "yellowpages.", "booking.com", "timeout.com",
 )
+# Hosts where many different people have pages under one domain.
+_MULTI_TENANT_HOSTS = {"linktr.ee", "sites.google.com", "about.me", "beacons.ai", "bio.link", "carrd.co"}
+
 _LISTING_TITLE = re.compile(
     r"\b(?:top|best)\s+\d+|\b\d+\s+(?:best|top)\b|\blist of\b|\bdirectory\b|\branking|"
     r"\breviews?\b|\bnear me\b|\bjobs?\b|\bnews\b|\bthings to do\b|\bguide to\b",
@@ -99,6 +102,11 @@ def website_from_result(result: SearchResult, region: str | None) -> RawProfile 
     url = website_url(result.link)
     if not url or not is_prospect_website(url, result.title):
         return None
+    # One website = one entity: "/join" and "/about" pages map to the site root,
+    # except on shared hosts where each path belongs to a different person.
+    parts = urlsplit(url)
+    if domain_of(url) not in _MULTI_TENANT_HOSTS:
+        url = f"{parts.scheme}://{parts.hostname}"
     name = clean_profile_name(result.title)
     if not name:
         return None
