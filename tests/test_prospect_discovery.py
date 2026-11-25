@@ -240,6 +240,40 @@ def test_llm_can_reject_non_genuine_profile():
     assert combine(group, u, signals, verdict).keep is False
 
 
+def test_llm_overrules_misleading_location_match():
+    u = rule_based_understanding("Startup founders in London UK")
+    group = ProspectGroup([_p("LinkedIn", "Tomer London", "https://www.linkedin.com/in/tomer",
+                              text="Tomer London - Co-founder of a startup, based in San Francisco")])
+    signals = rule_signals(group, u)
+    assert signals.location_level == "local"  # the surname matches "London"
+    verdict = CandidateVerdict(id=0, audience_match=True, location_match=False,
+                               genuine_prospect=True, reason="founder based in San Francisco")
+    result = combine(group, u, signals, verdict)
+    assert result.keep and result.status == "likely"  # still a founder, but not in London
+    assert result.location_match is False and result.location_label is None
+    assert not any("location" in e for e in result.evidence if not e.startswith("AI review"))
+
+
+def test_all_candidates_are_reviewed_in_batches(monkeypatch):
+    from app.services import relevance_service
+    llm = get_llm_service()
+    monkeypatch.setattr(llm, "_api_key", "fake-key")
+    calls = []
+
+    async def fake_verdicts(groups, u):
+        calls.append(len(groups))
+        return {i: CandidateVerdict(id=i, audience_match=True, location_match=True,
+                                    genuine_prospect=True, reason="ok") for i in range(len(groups))}
+
+    monkeypatch.setattr(relevance_service, "llm_verdicts", fake_verdicts)
+    u = rule_based_understanding("Cricket lovers in Ahmedabad India")
+    groups = [ProspectGroup([_p("X", f"Fan {i}", f"https://x.com/fan{i}", f"fan{i}", text="cricket")])
+              for i in range(90)]
+    results = asyncio.run(relevance_service.evaluate(groups, u))
+    assert calls == [40, 40, 10]
+    assert all(r.evaluated_by == "rules+llm" for _, r in results)
+
+
 def test_profile_without_interest_evidence_is_dropped():
     u = rule_based_understanding("Football lovers in Washington DC in USA")
     group = ProspectGroup([_p("Instagram", "A Person", "https://www.instagram.com/a/", text="Coffee in Washington DC")])

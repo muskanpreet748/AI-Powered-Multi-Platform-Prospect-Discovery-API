@@ -16,6 +16,7 @@ A prospect is kept only if public evidence supports the interest/audience.
 Location strengthens the match ("confirmed") but is not invented when absent.
 """
 
+import asyncio
 import logging
 import re
 from dataclasses import dataclass, field
@@ -28,6 +29,8 @@ from app.schemas import QueryUnderstanding
 from app.services.llm_service import LLMError, get_llm_service
 
 logger = logging.getLogger(__name__)
+
+LLM_BATCH_SIZE = 40  # candidates per LLM call
 
 
 @dataclass
@@ -157,21 +160,24 @@ def _supporting_bonus(group: ProspectGroup) -> float:
 def combine(group: ProspectGroup, u: QueryUnderstanding, signals: RuleSignals,
             verdict: CandidateVerdict | None) -> RelevanceResult:
     evidence = [f"profile text mentions '{t}'" for t in signals.interest_terms[:3]]
-    if signals.location_term:
-        evidence.append(f"profile text mentions location '{signals.location_term}'")
 
     if verdict is not None:
         if not verdict.genuine_prospect:
             return RelevanceResult(False, 0.0, "likely", False, False, None, evidence, "rules+llm")
         interest = verdict.audience_match
-        # Location: trust an exact text match (rules) or the LLM's reading of the text.
-        level = signals.location_level or ("local" if verdict.location_match else None)
-        evidence.append(f"AI review: {verdict.reason}")
+        # Location: the LLM reads context, so it can overrule a plain text match
+        # (e.g. surname "London", or "visited Dubai" for someone based elsewhere).
+        level = (signals.location_level or "local") if verdict.location_match else None
         evaluated_by = "rules+llm"
     else:
         interest = bool(signals.interest_terms)
         level = signals.location_level
         evaluated_by = "rules"
+
+    if level and signals.location_term:
+        evidence.append(f"profile text mentions location '{signals.location_term}'")
+    if verdict is not None:
+        evidence.append(f"AI review: {verdict.reason}")
 
     location_match = level is not None
     score = (0.6 if interest else 0.0) + {"local": 0.3, "country": 0.15}.get(level or "", 0.0)
@@ -188,21 +194,30 @@ async def evaluate(groups: list[ProspectGroup], u: QueryUnderstanding) -> list[t
     """Score every group; return only relevant ones, best first."""
     signals = [rule_signals(g, u) for g in groups]
 
-    # Send the most promising candidates (by rule score) to the LLM in ONE call.
+    # Review the most promising candidates (by rule score) with the LLM, in
+    # batches of LLM_BATCH_SIZE that run in parallel (few calls, short prompts).
     order = sorted(range(len(groups)), key=lambda i: rule_score(signals[i]), reverse=True)
-    llm_ids = order[: get_settings().max_llm_relevance_candidates]
+    reviewed = order[: get_settings().max_llm_relevance_candidates]
+    batches = [reviewed[i:i + LLM_BATCH_SIZE] for i in range(0, len(reviewed), LLM_BATCH_SIZE)]
+
     verdicts: dict[int, CandidateVerdict] = {}
-    if get_llm_service().enabled and llm_ids:
-        try:
-            by_position = await llm_verdicts([groups[i] for i in llm_ids], u)
-            verdicts = {llm_ids[pos]: v for pos, v in by_position.items()}
-        except LLMError as exc:
-            logger.warning("LLM relevance review failed (%s); using rules only", exc)
+    if get_llm_service().enabled and batches:
+        outcomes = await asyncio.gather(
+            *(llm_verdicts([groups[i] for i in batch], u) for batch in batches), return_exceptions=True
+        )
+        for batch, outcome in zip(batches, outcomes):
+            if isinstance(outcome, LLMError):
+                logger.warning("LLM relevance review failed for %d candidates (%s); using rules", len(batch), outcome)
+            elif isinstance(outcome, BaseException):
+                raise outcome  # a programming error, not an LLM outage
+            else:
+                verdicts.update({batch[pos]: v for pos, v in outcome.items()})
 
     results = []
     for i, group in enumerate(groups):
         result = combine(group, u, signals[i], verdicts.get(i))
         if result.keep:
             results.append((group, result))
-    results.sort(key=lambda item: item[1].score, reverse=True)
+    # AI-verified prospects first, then by score.
+    results.sort(key=lambda item: (item[1].evaluated_by == "rules+llm", item[1].score), reverse=True)
     return results

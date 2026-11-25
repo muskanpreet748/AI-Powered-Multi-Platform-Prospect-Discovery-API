@@ -32,7 +32,7 @@ class Settings(BaseSettings):
     max_queries_per_platform: int = 2
     max_websites_to_enrich: int = 6
     max_prospects: int = 50
-    max_llm_relevance_candidates: int = 40
+    max_llm_relevance_candidates: int = 120  # reviewed in parallel batches of 40
 
     # Timeouts, caching and rate limits
     platform_timeout_seconds: float = 25.0
