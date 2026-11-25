@@ -5,6 +5,25 @@ A FastAPI service that takes a natural-language query such as
 discovers matching **public** profiles across 9 platforms, merges profiles that belong to the same
 person, filters them for relevance, and returns structured JSON.
 
+| | Link |
+|---|---|
+| **Live demo** | https://prospect-discovery-api.onrender.com |
+| **API endpoint** | `POST https://prospect-discovery-api.onrender.com/prospect-discovery` |
+| **API documentation** | https://prospect-discovery-api.onrender.com/docs |
+| **Health check** | https://prospect-discovery-api.onrender.com/health |
+
+> Hosted on Render's free tier: after 15 minutes without traffic the service sleeps, and the first
+> request takes about a minute to wake it. Later requests respond normally (typically 20–40 s for a
+> discovery, which searches 9 platforms).
+
+```bash
+curl -X POST https://prospect-discovery-api.onrender.com/prospect-discovery \
+  -H "Content-Type: application/json" \
+  -d '{"query": "Restaurant owners in Dubai UAE"}'
+```
+
+Locally:
+
 ```http
 POST http://localhost:4000/prospect-discovery
 {"query": "Football lovers in Washington DC in USA"}
