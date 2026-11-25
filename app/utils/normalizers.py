@@ -20,6 +20,7 @@ class ProfileMatch:
     platform: str
     url: str            # canonical URL
     handle: str | None  # username / slug
+    is_post: bool = False  # True if the original URL was a post by this profile, not the profile page
 
 
 # Path segments that are platform features, not usernames.
@@ -89,14 +90,14 @@ def detect_profile(url: str, region: str | None = None) -> ProfileMatch | None:
         if seg and seg[0].lower() not in _X_RESERVED and _X_HANDLE.match(seg[0]):
             if len(seg) == 1 or seg[1] in ("status", "with_replies", "media"):
                 handle = seg[0].lower()
-                return ProfileMatch("X", f"https://x.com/{handle}", handle)
+                return ProfileMatch("X", f"https://x.com/{handle}", handle, is_post=len(seg) > 1)
         return None
 
     # Threads: /@<handle>
     if host in _THREADS_HOSTS:
         if seg and seg[0].startswith("@") and _INSTAGRAM_HANDLE.match(seg[0][1:]):
             handle = seg[0][1:].lower()
-            return ProfileMatch("Threads", f"https://www.threads.com/@{handle}", handle)
+            return ProfileMatch("Threads", f"https://www.threads.com/@{handle}", handle, is_post=len(seg) > 1)
         return None
 
     # YouTube: /@handle, /channel/<id>, /c/<name>, /user/<name>
@@ -123,7 +124,8 @@ def detect_profile(url: str, region: str | None = None) -> ProfileMatch | None:
         if first in ("people", "pages") and len(seg) >= 3 and seg[2].isdigit():
             return ProfileMatch("Facebook", f"https://www.facebook.com/{first}/{seg[1]}/{seg[2]}", seg[2])
         if first not in _FACEBOOK_RESERVED and _SLUG.match(seg[0]) and not first.endswith(".php"):
-            return ProfileMatch("Facebook", f"https://www.facebook.com/{first}", first)
+            # /<page>/posts/..., /<page>/videos/... are posts published by that page
+            return ProfileMatch("Facebook", f"https://www.facebook.com/{first}", first, is_post=len(seg) > 1)
         return None
 
     # WhatsApp click-to-chat links: wa.me/<number>, api.whatsapp.com/send?phone=<number>
@@ -167,6 +169,8 @@ def domain_of(url: str) -> str:
 # Names
 # --------------------------------------------------------------------------- #
 _TITLE_SPLIT = re.compile(r"\s+(?:\||-|–|—|•|·|/|:)\s+|\s+\(@|\s+on\s+(?:X|Twitter|Instagram|Threads)\b")
+_PAGE_PREFIX = re.compile(r"^(?:contact(?:\s+us)?|about(?:\s+us)?|welcome\s+to)\b[\s:,-]*", re.I)
+_POST_AUTHOR = re.compile(r"^(.{2,80}?)\s+(?:\(@|on\s+(?:X|Twitter|Threads)\b)")
 _GENERIC_NAMES = {
     "home", "homepage", "welcome", "login", "log in", "sign up", "instagram", "facebook",
     "linkedin", "x", "twitter", "threads", "youtube", "official site", "official website",
@@ -182,8 +186,21 @@ def clean_profile_name(title: str, handle: str | None = None) -> str | None:
     """
     for part in _TITLE_SPLIT.split(title or ""):
         name = part.strip(" \"'@|-–•")
+        name = _PAGE_PREFIX.sub("", name).strip()  # "Contact Bâoli Restaurant" -> "Bâoli Restaurant"
         if 2 <= len(name) <= 80 and name.lower() not in _GENERIC_NAMES and not name.lower().startswith("http"):
             return name
+    return f"@{handle}" if handle else None
+
+
+def post_author_name(title: str, handle: str | None) -> str | None:
+    """
+    For a post URL, the title is the post's text, not a name. Only trust an
+    explicit author pattern ("Jane Doe on X: ...", "Jane Doe (@jane) ..."),
+    otherwise use the real handle.
+    """
+    match = _POST_AUTHOR.match(title or "")
+    if match:
+        return clean_profile_name(match.group(1), handle)
     return f"@{handle}" if handle else None
 
 

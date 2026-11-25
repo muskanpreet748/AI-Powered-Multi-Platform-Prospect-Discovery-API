@@ -65,6 +65,17 @@ def validate_phone(raw: str, region: str | None = None) -> str | None:
     return phonenumbers.format_number(number, phonenumbers.PhoneNumberFormat.E164)
 
 
+def phone_in_region(e164_phone: str, region: str | None) -> bool:
+    """True if the number belongs to the target country (always True if no country is known)."""
+    if not region:
+        return True
+    try:
+        number = phonenumbers.parse(e164_phone, None)
+    except phonenumbers.NumberParseException:
+        return False
+    return phonenumbers.region_code_for_number(number) == region.upper()
+
+
 def extract_phones(text: str, region: str | None = None, limit: int = 3) -> set[str]:
     """Find valid phone numbers written in free text (e.g. a bio or web page)."""
     found: set[str] = set()

@@ -19,10 +19,11 @@ from bs4 import BeautifulSoup
 from app.models import RawProfile, SearchResult
 from app.utils.http_client import fetch_public_html
 from app.utils.normalizers import (
-    clean_profile_name, detect_profile, domain_of, website_url, whatsapp_link,
+    clean_profile_name, detect_profile, domain_of, post_author_name, website_url, whatsapp_link,
 )
 from app.utils.validators import (
-    extract_emails, extract_phones, extract_whatsapp_numbers, validate_email, validate_phone,
+    extract_emails, extract_phones, extract_whatsapp_numbers, phone_in_region,
+    validate_email, validate_phone,
 )
 
 logger = logging.getLogger(__name__)
@@ -53,12 +54,30 @@ _LISTING_TITLE = re.compile(
 )
 
 
+# URLs that look like an article/news/blog page rather than someone's own site.
+_ARTICLE_PATH = re.compile(r"/(?:news|article|articles|blog|blogs|story|stories|press|magazine)/|/(?:19|20)\d{2}/", re.I)
+
+
 def is_prospect_website(url: str, title: str) -> bool:
     domain = domain_of(url)
     if any(domain == d or domain.endswith("." + d) or (d.endswith(".") and d in domain)
            for d in _NON_PROSPECT_DOMAINS):
         return False
+    path = urlsplit(url).path
+    last_segment = path.rstrip("/").rsplit("/", 1)[-1]
+    if _ARTICLE_PATH.search(path + "/") or last_segment.count("-") >= 4:  # long slug = article
+        return False
     return not _LISTING_TITLE.search(title)
+
+
+def drop_foreign_numbers(profile: RawProfile, region: str | None) -> None:
+    """
+    Keep only phone/WhatsApp numbers from the target country. A Dubai restaurant
+    page showing a +1 number usually belongs to someone else (e.g. the web designer).
+    """
+    profile.phones = {p for p in profile.phones if phone_in_region(p, region)}
+    profile.whatsapp = {w for w in profile.whatsapp
+                        if phone_in_region("+" + w.rsplit("/", 1)[-1], region)}
 
 
 def add_contacts_from_text(profile: RawProfile, text: str, region: str | None) -> None:
@@ -75,6 +94,7 @@ def add_contacts_from_text(profile: RawProfile, text: str, region: str | None) -
             profile.whatsapp.add(match.url)
         elif match.url != profile.url:
             profile.linked_urls.add(match.url)
+    drop_foreign_numbers(profile, region)
 
 
 def profile_from_result(result: SearchResult, region: str | None) -> RawProfile | None:
@@ -82,7 +102,11 @@ def profile_from_result(result: SearchResult, region: str | None) -> RawProfile 
     match = detect_profile(result.link, region)
     if not match or match.platform == "WhatsApp":
         return None
-    name = clean_profile_name(result.title, match.handle)
+    if match.is_post:
+        # The title of a post is its text, not the author's name.
+        name = post_author_name(result.title, match.handle)
+    else:
+        name = clean_profile_name(result.title, match.handle)
     if not name:
         return None
     profile = RawProfile(
@@ -172,7 +196,7 @@ def parse_page(html: str, page_url: str, region: str | None) -> PageData:
     return data
 
 
-def _merge_page_into_profile(profile: RawProfile, page: PageData) -> None:
+def _merge_page_into_profile(profile: RawProfile, page: PageData, region: str | None) -> None:
     # A page listing many different emails is probably a directory: we cannot
     # tell which one belongs to this prospect, so we keep none of them.
     if len(page.emails) <= 3:
@@ -180,6 +204,7 @@ def _merge_page_into_profile(profile: RawProfile, page: PageData) -> None:
     if len(page.phones) <= 3:
         profile.phones |= page.phones
     profile.whatsapp |= page.whatsapp
+    drop_foreign_numbers(profile, region)
     # Exactly one link per platform = the site's own account. Several different
     # links (e.g. partners, the web designer) are ambiguous, so we skip them.
     for urls in page.social.values():
@@ -199,12 +224,12 @@ async def enrich_website(profile: RawProfile, region: str | None) -> None:
     site_name = clean_profile_name(page.site_name or "")
     if site_name:
         profile.name = site_name
-    _merge_page_into_profile(profile, page)
+    _merge_page_into_profile(profile, page, region)
 
     if not profile.emails and page.contact_page:
         contact = await fetch_public_html(page.contact_page)
         if contact:
-            _merge_page_into_profile(profile, parse_page(contact[1], contact[0], region))
+            _merge_page_into_profile(profile, parse_page(contact[1], contact[0], region), region)
 
 
 async def enrich_websites(profiles: list[RawProfile], region: str | None, limit: int) -> None:

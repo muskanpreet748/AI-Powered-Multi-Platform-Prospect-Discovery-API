@@ -65,6 +65,28 @@ def test_detect_profile_rejects_non_profiles(url):
     assert detect_profile(url) is None
 
 
+def test_post_title_is_never_used_as_a_name():
+    from app.models import SearchResult
+    from app.services.profile_extractor import profile_from_result
+    post = SearchResult("Shout out to the Restaurant owner of Amaya, what a night",
+                        "https://x.com/altodomato/status/123", "", "q")
+    assert profile_from_result(post, "AE").name == "@altodomato"
+    authored = SearchResult('Jane Doe on X: "Great game today"', "https://x.com/janedoe/status/1", "", "q")
+    assert profile_from_result(authored, "US").name == "Jane Doe"
+
+
+def test_articles_and_foreign_numbers_are_rejected():
+    from app.models import SearchResult
+    from app.services.profile_extractor import website_from_result
+    article = SearchResult("Restaurant owners push ahead", "https://site.com/business/restaurant-owners-push-ahead-with-new-opening", "", "q")
+    assert website_from_result(article, "AE") is None
+    site = SearchResult("Contact Baoli Restaurant Dubai", "https://baoli.com/contact",
+                        "Call +971 4 321 4567 or +1 202 456 1111", "q")
+    profile = website_from_result(site, "AE")
+    assert profile.name == "Baoli Restaurant Dubai"
+    assert profile.phones == {"+97143214567"}  # the US number is dropped for a UAE query
+
+
 def test_clean_profile_name():
     assert clean_profile_name("Jane Doe (@janedoe) • Instagram photos and videos") == "Jane Doe"
     assert clean_profile_name("Jane Doe - Founder - Acme | LinkedIn") == "Jane Doe"
