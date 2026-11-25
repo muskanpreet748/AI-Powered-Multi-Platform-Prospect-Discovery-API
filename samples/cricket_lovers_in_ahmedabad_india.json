@@ -1,0 +1,264 @@
+{
+  "success": true,
+  "query": "Cricket lovers in Ahmedabad India",
+  "total_prospects": 7,
+  "prospects": [
+    {
+      "name": "Cricket Fan club",
+      "location": "Ahmedabad, India",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/cricket-fan-club-090423367"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'cricket'",
+          "profile text mentions 'cricket fan'",
+          "profile text mentions location 'Ahmedabad'",
+          "AI review: Student in Ahmedabad identified as a cricket fan."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://in.linkedin.com/in/cricket-fan-club-090423367"
+      ]
+    },
+    {
+      "name": "@sanghaviharsh",
+      "location": "Ahmedabad, India",
+      "social_link": [
+        {
+          "platform": "X",
+          "link": "https://x.com/sanghaviharsh"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'cricket'",
+          "profile text mentions location 'Ahmedabad'",
+          "AI review: Individual sharing personal cricket fandom in Ahmedabad."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://x.com/sanghaviharsh/status/2061160693366411658"
+      ]
+    },
+    {
+      "name": "@honest_cric_fan",
+      "location": "Ahmedabad, India",
+      "social_link": [
+        {
+          "platform": "X",
+          "link": "https://x.com/honest_cric_fan"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'match'",
+          "profile text mentions location 'Ahmedabad'",
+          "AI review: Individual discussing cricket match attendance in Ahmedabad."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://x.com/Honest_Cric_fan/status/2030494395406090613"
+      ]
+    },
+    {
+      "name": "@61595531626825",
+      "location": "Ahmedabad, India",
+      "social_link": [
+        {
+          "platform": "Facebook",
+          "link": "https://www.facebook.com/61595531626825"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'cricket'",
+          "profile text mentions location 'Ahmedabad'",
+          "AI review: Ahmedabad cricketer sharing passion for the game."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.facebook.com/61595531626825/videos/cricket-is-not-just-a-game-its-an-emotion-%EF%B8%8F-abhishek-ad-instagram-abhishek-ad-fa/1174945814888718/"
+      ]
+    },
+    {
+      "name": "@indian_boy_224241",
+      "location": "Ahmedabad, India",
+      "social_link": [
+        {
+          "platform": "Threads",
+          "link": "https://www.threads.com/@indian_boy_224241"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions location 'Ahmedabad'",
+          "AI review: Individual posting about cricket grounds in Ahmedabad."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.threads.com/@indian_boy_224241/post/DYTxzdpmPK6/video-ahmedabad-ka-best-graund-cricketlovers-cricketlover-vairal-trendingreels-like/"
+      ]
+    },
+    {
+      "name": "@copmadhav_kolipatel",
+      "location": "Ahmedabad, India",
+      "social_link": [
+        {
+          "platform": "Threads",
+          "link": "https://www.threads.com/@copmadhav_kolipatel"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'cricket'",
+          "profile text mentions location 'Ahmedabad'",
+          "AI review: Individual posting about cricket tournament in Ahmedabad."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.threads.com/@copmadhav_kolipatel/post/DfYys8uDAOw/video-%E0%AA%B0%E0%AA%BE%E0%AA%AE%E0%AA%9B%E0%AA%BE%E0%AA%AA%E0%AA%B0%E0%AB%80-%E0%AA%95%E0%AB%8D%E0%AA%B0%E0%AA%BF%E0%AA%95%E0%AB%87%E0%AA%9F-%E0%AA%9F%E0%AB%81%E0%AA%B0%E0%AB%8D%E0%AA%A8%E0%AA%BE%E0%AA%AE%E0%AB%87%E0%AA%A8%E0%AB%8D%E0%AA%9F%E0%AA%A8%E0%AB%81%E0%AA%82-%E0%AA%89%E0%AA%A6%E0%AA%98%E0%AA%BE%E0%AA%9F%E0%AA%A8cricket-cricketlover-ahmedabad-followers/"
+      ]
+    },
+    {
+      "name": "Cricket lover Army",
+      "location": null,
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@cricketloversarmy"
+        }
+      ],
+      "relevance": {
+        "score": 0.6,
+        "status": "likely",
+        "interest_match": true,
+        "location_match": false,
+        "evidence": [
+          "profile text mentions 'cricket'",
+          "AI review: Individual describing themselves as a cricket lover."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@cricketloversarmy)"
+      ]
+    }
+  ],
+  "understanding": {
+    "is_valid_query": true,
+    "interest": "Cricket",
+    "audience": "Cricket lovers",
+    "location": {
+      "city": "Ahmedabad",
+      "state": "Gujarat",
+      "country": "India",
+      "country_code": "IN"
+    },
+    "target_type": "individual",
+    "keywords": [
+      "cricket",
+      "cricket fan",
+      "ipl",
+      "bcci",
+      "match"
+    ],
+    "search_terms": [
+      "cricket fan",
+      "cricket lover"
+    ],
+    "location_aliases": [
+      "Amdavad"
+    ]
+  },
+  "understanding_source": "llm",
+  "platforms": [
+    {
+      "platform": "Google",
+      "status": "ok",
+      "profiles_found": 3,
+      "message": null
+    },
+    {
+      "platform": "LinkedIn",
+      "status": "ok",
+      "profiles_found": 2,
+      "message": null
+    },
+    {
+      "platform": "X",
+      "status": "ok",
+      "profiles_found": 4,
+      "message": null
+    },
+    {
+      "platform": "YouTube",
+      "status": "ok",
+      "profiles_found": 19,
+      "message": null
+    },
+    {
+      "platform": "Instagram",
+      "status": "ok",
+      "profiles_found": 0,
+      "message": null
+    },
+    {
+      "platform": "WhatsApp",
+      "status": "ok",
+      "profiles_found": 0,
+      "message": null
+    },
+    {
+      "platform": "Facebook",
+      "status": "ok",
+      "profiles_found": 2,
+      "message": null
+    },
+    {
+      "platform": "Email",
+      "status": "ok",
+      "profiles_found": 0,
+      "message": null
+    },
+    {
+      "platform": "Threads",
+      "status": "ok",
+      "profiles_found": 3,
+      "message": null
+    }
+  ]
+}

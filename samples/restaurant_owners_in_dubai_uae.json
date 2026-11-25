@@ -1,0 +1,610 @@
+{
+  "success": true,
+  "query": "Restaurant owners in Dubai UAE",
+  "total_prospects": 18,
+  "prospects": [
+    {
+      "name": "BIK Hospitality",
+      "location": "Dubai, United Arab Emirates",
+      "social_link": [
+        {
+          "platform": "Google",
+          "link": "https://bikhospitality.com"
+        },
+        {
+          "platform": "Email",
+          "link": "mailto:info@bikrestaurants.com"
+        },
+        {
+          "platform": "Email",
+          "link": "mailto:pr@bikrestaurants.com"
+        }
+      ],
+      "relevance": {
+        "score": 0.95,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'hospitality'",
+          "profile text mentions location 'Dubai'",
+          "AI review: Co-founder of hospitality group managing Dubai restaurants."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://bikhospitality.com/"
+      ]
+    },
+    {
+      "name": "Rowley's Restaurants",
+      "location": "Dubai, United Arab Emirates",
+      "social_link": [
+        {
+          "platform": "Google",
+          "link": "https://rowleysrestaurants.com"
+        },
+        {
+          "platform": "Facebook",
+          "link": "https://www.facebook.com/rowleysrestaurant"
+        },
+        {
+          "platform": "Instagram",
+          "link": "https://www.instagram.com/rowleys.uae/"
+        },
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/company/rowleys-restaurant"
+        },
+        {
+          "platform": "Email",
+          "link": "mailto:info@rowleysrestaurants.com"
+        },
+        {
+          "platform": "Phone",
+          "link": "tel:+97142574754"
+        },
+        {
+          "platform": "Phone",
+          "link": "tel:+971566802533"
+        }
+      ],
+      "relevance": {
+        "score": 0.95,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'hospitality'",
+          "profile text mentions location 'Dubai'",
+          "AI review: Restaurant business with locations in Dubai."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://rowleysrestaurants.com/"
+      ]
+    },
+    {
+      "name": "Seoul Garden Dubai Restaurant",
+      "location": "Dubai, United Arab Emirates",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@seoulgardendubai1999"
+        },
+        {
+          "platform": "Phone",
+          "link": "tel:+97143377876"
+        },
+        {
+          "platform": "Phone",
+          "link": "tel:+971505565033"
+        },
+        {
+          "platform": "WhatsApp",
+          "link": "https://wa.me/971505565033"
+        }
+      ],
+      "relevance": {
+        "score": 0.95,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'dining'",
+          "profile text mentions 'restaurant'",
+          "profile text mentions location 'Dubai'",
+          "AI review: Restaurant business in Dubai since 1999."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@seoulgardendubai1999)"
+      ]
+    },
+    {
+      "name": "Le Méridien Dubai Hotel & Conference Centre",
+      "location": "Dubai, United Arab Emirates",
+      "social_link": [
+        {
+          "platform": "Google",
+          "link": "https://www.marriott.com"
+        },
+        {
+          "platform": "Email",
+          "link": "mailto:restaurants.lmd@lemeridien.com"
+        },
+        {
+          "platform": "Phone",
+          "link": "tel:+97147022455"
+        }
+      ],
+      "relevance": {
+        "score": 0.95,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'restaurant'",
+          "profile text mentions location 'Dubai'",
+          "AI review: Hotel with dining and restaurant facilities in Dubai."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.marriott.com/en-us/hotels/dxbmd-le-meridien-dubai-hotel-and-conference-centre/dining/"
+      ]
+    },
+    {
+      "name": "Restaurants and Dining in Dubai Creek",
+      "location": "Dubai, United Arab Emirates",
+      "social_link": [
+        {
+          "platform": "Google",
+          "link": "https://www.hyatt.com"
+        },
+        {
+          "platform": "Email",
+          "link": "mailto:thelagoonbeachclub@hyatt.com"
+        },
+        {
+          "platform": "Phone",
+          "link": "tel:+97146021105"
+        }
+      ],
+      "relevance": {
+        "score": 0.95,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'dining'",
+          "profile text mentions location 'Dubai'",
+          "AI review: Resort dining venue in Dubai."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.hyatt.com/park-hyatt/en-US/dxbph-park-hyatt-dubai/dining"
+      ]
+    },
+    {
+      "name": "Aisha Shakoor‏",
+      "location": "Dubai, United Arab Emirates",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/aisha-shakoor-924777243"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'restaurant'",
+          "profile text mentions location 'Dubai'",
+          "AI review: Owner of restaurants located in Dubai."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://ae.linkedin.com/in/aisha-shakoor-924777243"
+      ]
+    },
+    {
+      "name": "Owner of Shamla Mandi Restaurant",
+      "location": "Dubai, United Arab Emirates",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/shamla-mandi-restaurant-771437335"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'restaurant'",
+          "profile text mentions location 'Dubai'",
+          "AI review: Owner managing a restaurant in Dubai."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://ae.linkedin.com/in/shamla-mandi-restaurant-771437335"
+      ]
+    },
+    {
+      "name": "Tina Monique Tcheubeba",
+      "location": "Dubai, United Arab Emirates",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/tina-monique-tcheubeba-050840ba"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'restaurateur'",
+          "profile text mentions location 'Dubai'",
+          "AI review: Chef and restaurateur trained in Dubai."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://cm.linkedin.com/in/tina-monique-tcheubeba-050840ba"
+      ]
+    },
+    {
+      "name": "Al Ibrahimi Restaurant UAE",
+      "location": "Dubai, United Arab Emirates",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@alibrahimirestaurantuae"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'restaurant'",
+          "profile text mentions location 'UAE'",
+          "AI review: Restaurant business in the UAE."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@alibrahimirestaurantuae)"
+      ]
+    },
+    {
+      "name": "Pak Tayyab Restaurant",
+      "location": "Dubai, United Arab Emirates",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@paktayyabrestaurant9910"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'restaurant'",
+          "profile text mentions location 'Dubai'",
+          "AI review: Restaurant business operating in Dubai."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@paktayyabrestaurant9910)"
+      ]
+    },
+    {
+      "name": "Chef Abid Sharif",
+      "location": "Dubai, United Arab Emirates",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@chefask"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'restaurateur'",
+          "profile text mentions location 'Dubai'",
+          "AI review: Restaurateur and master chef in Dubai."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@chefask)"
+      ]
+    },
+    {
+      "name": "Chef Roberto Segura",
+      "location": "Dubai, United Arab Emirates",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@robertosegura.official"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'restaurateur'",
+          "profile text mentions 'hospitality'",
+          "profile text mentions 'restaurant'",
+          "profile text mentions location 'Dubai'",
+          "AI review: Restaurateur and chef based in Dubai."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@robertosegura.official)"
+      ]
+    },
+    {
+      "name": "GoFood UAE",
+      "location": "Dubai, United Arab Emirates",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@gofooduae9998"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'restaurant'",
+          "profile text mentions location 'UAE'",
+          "AI review: Delivery platform founded by restaurant owners in the UAE."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@gofooduae9998)"
+      ]
+    },
+    {
+      "name": "Behind the restaurant by Raguzzi",
+      "location": "Dubai, United Arab Emirates",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@behindtherestaurant"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'restaurant'",
+          "profile text mentions location 'Dubai'",
+          "AI review: Restaurateur with international experience including Dubai."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@behindtherestaurant)"
+      ]
+    },
+    {
+      "name": "saltbae",
+      "location": "Dubai, United Arab Emirates",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@saltbae-cook"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'restaurateur'",
+          "profile text mentions 'restaurant'",
+          "profile text mentions location 'Dubai'",
+          "AI review: Restaurateur who opened a Dubai restaurant."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@saltbae-cook)"
+      ]
+    },
+    {
+      "name": "Joe OSAWAYE",
+      "location": "Dubai, United Arab Emirates",
+      "social_link": [
+        {
+          "platform": "Instagram",
+          "link": "https://www.instagram.com/joeosawaye/"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'restaurant'",
+          "profile text mentions location 'Dubai'",
+          "AI review: Restaurateur behind a restaurant in Dubai."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.instagram.com/joeosawaye/"
+      ]
+    },
+    {
+      "name": "Tom Arnel",
+      "location": "Dubai, United Arab Emirates",
+      "social_link": [
+        {
+          "platform": "Instagram",
+          "link": "https://www.instagram.com/tomarnel/"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'restaurateur'",
+          "profile text mentions 'dining'",
+          "profile text mentions 'restaurant'",
+          "profile text mentions location 'Dubai'",
+          "AI review: Restaurateur and chef in Dubai."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.instagram.com/tomarnel/"
+      ]
+    },
+    {
+      "name": "Shoaib Rahman",
+      "location": null,
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/shoaib-rahman-14866036"
+        }
+      ],
+      "relevance": {
+        "score": 0.6,
+        "status": "likely",
+        "interest_match": true,
+        "location_match": false,
+        "evidence": [
+          "profile text mentions 'restaurant owner'",
+          "profile text mentions 'restaurant'",
+          "AI review: Restaurant owner located in Pakistan."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://pk.linkedin.com/in/shoaib-rahman-14866036"
+      ]
+    }
+  ],
+  "understanding": {
+    "is_valid_query": true,
+    "interest": "restaurant",
+    "audience": "restaurant owners",
+    "location": {
+      "city": "Dubai",
+      "state": null,
+      "country": "United Arab Emirates",
+      "country_code": "AE"
+    },
+    "target_type": "individual",
+    "keywords": [
+      "restaurant owner",
+      "restaurateur",
+      "restaurant founder",
+      "hospitality",
+      "dining",
+      "restaurant"
+    ],
+    "search_terms": [
+      "restaurant owner",
+      "restaurateur dubai",
+      "hospitality owner"
+    ],
+    "location_aliases": [
+      "Dubai",
+      "UAE",
+      "United Arab Emirates"
+    ]
+  },
+  "understanding_source": "llm",
+  "platforms": [
+    {
+      "platform": "Google",
+      "status": "ok",
+      "profiles_found": 3,
+      "message": null
+    },
+    {
+      "platform": "LinkedIn",
+      "status": "ok",
+      "profiles_found": 6,
+      "message": null
+    },
+    {
+      "platform": "X",
+      "status": "ok",
+      "profiles_found": 4,
+      "message": null
+    },
+    {
+      "platform": "YouTube",
+      "status": "ok",
+      "profiles_found": 20,
+      "message": null
+    },
+    {
+      "platform": "Instagram",
+      "status": "ok",
+      "profiles_found": 5,
+      "message": null
+    },
+    {
+      "platform": "WhatsApp",
+      "status": "ok",
+      "profiles_found": 0,
+      "message": null
+    },
+    {
+      "platform": "Facebook",
+      "status": "ok",
+      "profiles_found": 3,
+      "message": null
+    },
+    {
+      "platform": "Email",
+      "status": "ok",
+      "profiles_found": 4,
+      "message": null
+    },
+    {
+      "platform": "Threads",
+      "status": "ok",
+      "profiles_found": 4,
+      "message": null
+    }
+  ]
+}

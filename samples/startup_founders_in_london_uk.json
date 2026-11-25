@@ -1,0 +1,341 @@
+{
+  "success": true,
+  "query": "Startup founders in London UK",
+  "total_prospects": 10,
+  "prospects": [
+    {
+      "name": "Davide Tronzano",
+      "location": "London, United Kingdom",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/davidetronzano"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'co-founder'",
+          "profile text mentions 'ceo'",
+          "profile text mentions location 'London'",
+          "AI review: Davide Tronzano is a Co-Founder and CEO in London."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://uk.linkedin.com/in/davidetronzano"
+      ]
+    },
+    {
+      "name": "Gerald Speers",
+      "location": "London, United Kingdom",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/geraldspeers"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'entrepreneur'",
+          "profile text mentions location 'London'",
+          "AI review: Gerald Speers is a tech entrepreneur and founder in London."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://uk.linkedin.com/in/geraldspeers"
+      ]
+    },
+    {
+      "name": "Tano",
+      "location": "London, United Kingdom",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@tano-ai"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions location 'London'",
+          "AI review: Building an AI company in London."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@tano-ai)"
+      ]
+    },
+    {
+      "name": "Ivan Mazour",
+      "location": "London, United Kingdom",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@ivanmazour-profile"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'ceo'",
+          "profile text mentions 'startups'",
+          "profile text mentions location 'London'",
+          "AI review: Ivan Mazour is a CEO and Founder of a tech platform."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@ivanmazour-profile)"
+      ]
+    },
+    {
+      "name": "Nishu Dishu London Vlogs",
+      "location": "London, United Kingdom",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@nishu_dishu_london_vlogs"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions location 'London'",
+          "AI review: Individuals sharing the journey of building a startup in London."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@nishu_dishu_london_vlogs)"
+      ]
+    },
+    {
+      "name": "@maddieborge",
+      "location": "London, United Kingdom",
+      "social_link": [
+        {
+          "platform": "Threads",
+          "link": "https://www.threads.com/@maddieborge"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions location 'London'",
+          "AI review: 25-year-old founder in London."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.threads.com/@maddieborge/video/DertGg6El79/video-a-crazy-day-in-my-life-as-a-year-old-founder-in-london-shoppastael-london-work/"
+      ]
+    },
+    {
+      "name": "@ehsanvohra",
+      "location": "London, United Kingdom",
+      "social_link": [
+        {
+          "platform": "Threads",
+          "link": "https://www.threads.com/@ehsanvohra"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions location 'London'",
+          "AI review: London founder looking to connect with like-minded entrepreneurs."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.threads.com/@ehsanvohra/post/DecHpHijQSe/founders-startup-teams-investors-and-business-professionals-london-startup/"
+      ]
+    },
+    {
+      "name": "@theatoneacademy",
+      "location": "London, United Kingdom",
+      "social_link": [
+        {
+          "platform": "Threads",
+          "link": "https://www.threads.com/@theatoneacademy"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'entrepreneur'",
+          "profile text mentions location 'London'",
+          "AI review: London entrepreneur building a fitness tech business."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.threads.com/@theatoneacademy/post/De5L5q5iJzw/london-entrepreneur-here-building-a-fitness-tech-business-collecting-lessons/"
+      ]
+    },
+    {
+      "name": "Alex Liu",
+      "location": null,
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@alexliu1"
+        },
+        {
+          "platform": "Email",
+          "link": "mailto:alexliubusiness0002@gmail.com"
+        }
+      ],
+      "relevance": {
+        "score": 0.65,
+        "status": "likely",
+        "interest_match": true,
+        "location_match": false,
+        "evidence": [
+          "AI review: Creator and founder of multiple projects."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@alexliu1)"
+      ]
+    },
+    {
+      "name": "Oscar Lindhardt",
+      "location": null,
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@oscar_lindhardt"
+        }
+      ],
+      "relevance": {
+        "score": 0.6,
+        "status": "likely",
+        "interest_match": true,
+        "location_match": false,
+        "evidence": [
+          "AI review: Started a business at 18, individual entrepreneur profile."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@oscar_lindhardt)"
+      ]
+    }
+  ],
+  "understanding": {
+    "is_valid_query": true,
+    "interest": "startups",
+    "audience": "startup founders",
+    "location": {
+      "city": "London",
+      "state": "England",
+      "country": "United Kingdom",
+      "country_code": "GB"
+    },
+    "target_type": "individual",
+    "keywords": [
+      "startup founder",
+      "entrepreneur",
+      "co-founder",
+      "ceo",
+      "startup owner",
+      "startups"
+    ],
+    "search_terms": [
+      "startup founder",
+      "tech entrepreneur",
+      "startup cofounder"
+    ],
+    "location_aliases": [
+      "London",
+      "Greater London"
+    ]
+  },
+  "understanding_source": "llm",
+  "platforms": [
+    {
+      "platform": "Google",
+      "status": "ok",
+      "profiles_found": 6,
+      "message": null
+    },
+    {
+      "platform": "LinkedIn",
+      "status": "ok",
+      "profiles_found": 2,
+      "message": null
+    },
+    {
+      "platform": "X",
+      "status": "ok",
+      "profiles_found": 2,
+      "message": null
+    },
+    {
+      "platform": "YouTube",
+      "status": "ok",
+      "profiles_found": 20,
+      "message": null
+    },
+    {
+      "platform": "Instagram",
+      "status": "ok",
+      "profiles_found": 1,
+      "message": null
+    },
+    {
+      "platform": "WhatsApp",
+      "status": "ok",
+      "profiles_found": 0,
+      "message": null
+    },
+    {
+      "platform": "Facebook",
+      "status": "ok",
+      "profiles_found": 2,
+      "message": null
+    },
+    {
+      "platform": "Email",
+      "status": "ok",
+      "profiles_found": 0,
+      "message": null
+    },
+    {
+      "platform": "Threads",
+      "status": "ok",
+      "profiles_found": 4,
+      "message": null
+    }
+  ]
+}

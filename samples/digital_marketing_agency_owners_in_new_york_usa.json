@@ -1,0 +1,1474 @@
+{
+  "success": true,
+  "query": "Digital marketing agency owners in New York USA",
+  "total_prospects": 50,
+  "prospects": [
+    {
+      "name": "Thrive Internet Marketing Agency",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "Google",
+          "link": "https://thriveagency.com"
+        },
+        {
+          "platform": "Facebook",
+          "link": "https://www.facebook.com/thriveagency"
+        },
+        {
+          "platform": "Instagram",
+          "link": "https://www.instagram.com/thriveinternetmarketingagency/"
+        },
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/company/thrive-agency"
+        },
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@thriveagency"
+        },
+        {
+          "platform": "X",
+          "link": "https://x.com/thriveagency"
+        },
+        {
+          "platform": "Phone",
+          "link": "tel:+18176429686"
+        },
+        {
+          "platform": "Phone",
+          "link": "tel:+18669084748"
+        }
+      ],
+      "relevance": {
+        "score": 0.95,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Thrive Internet Marketing Agency is a New York digital marketing agency."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://thriveagency.com/nyc-digital-marketing-agency/"
+      ]
+    },
+    {
+      "name": "Creative House",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "Google",
+          "link": "https://creativehouse.marketing"
+        },
+        {
+          "platform": "Facebook",
+          "link": "https://www.facebook.com/creative.house.marketing.nyc"
+        },
+        {
+          "platform": "Instagram",
+          "link": "https://www.instagram.com/creativehousemarketing/"
+        },
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/company/creativehouse"
+        },
+        {
+          "platform": "Email",
+          "link": "mailto:contact@creativehouse.marketing"
+        },
+        {
+          "platform": "Phone",
+          "link": "tel:+16463553158"
+        }
+      ],
+      "relevance": {
+        "score": 0.95,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Creative House is a digital marketing agency in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://creativehouse.marketing/"
+      ]
+    },
+    {
+      "name": "Stephan Partners",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "Google",
+          "link": "https://www.stephanpartners.com"
+        },
+        {
+          "platform": "Facebook",
+          "link": "https://www.facebook.com/stephan-partners-188009177886015"
+        },
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/george-stephan-32b2a83"
+        },
+        {
+          "platform": "Email",
+          "link": "mailto:george@stephanpartners.com"
+        }
+      ],
+      "relevance": {
+        "score": 0.95,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: George founded Stephan Direct, a direct marketing agency in NYC."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.stephanpartners.com/team"
+      ]
+    },
+    {
+      "name": "Hunter Digital Marketing Agency",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@hunterdigitalmarketingagency"
+        },
+        {
+          "platform": "Phone",
+          "link": "tel:+12122021431"
+        }
+      ],
+      "relevance": {
+        "score": 0.95,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Hunter Digital is a digital marketing agency in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@hunterdigitalmarketingagency)"
+      ]
+    },
+    {
+      "name": "Digital Marketing Agency in New York",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@digitalmarketingagencyinne1103"
+        },
+        {
+          "platform": "Email",
+          "link": "mailto:shalabh.mishra@gmail.com"
+        }
+      ],
+      "relevance": {
+        "score": 0.95,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Digital Marketing Agency in New York provides SEO and web design services in NYC."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@digitalmarketingagencyinne1103)"
+      ]
+    },
+    {
+      "name": "Paul D. Albee",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@atsdesignsyracuse"
+        },
+        {
+          "platform": "Phone",
+          "link": "tel:+13154540357"
+        }
+      ],
+      "relevance": {
+        "score": 0.95,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'founder'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Paul D. Albee is founder and managing partner of ATS Design Group in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@atsdesignsyracuse)"
+      ]
+    },
+    {
+      "name": "Sydney Abrams",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@sydneyabramss"
+        },
+        {
+          "platform": "Email",
+          "link": "mailto:sydney@meetmisfitmarketing.com"
+        }
+      ],
+      "relevance": {
+        "score": 0.95,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'founder'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: NYC-based marketing agency founder."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@sydneyabramss)"
+      ]
+    },
+    {
+      "name": "Digital Marketing Agency New York, NY",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "Google",
+          "link": "https://bestpracticemedia.com"
+        },
+        {
+          "platform": "Email",
+          "link": "mailto:support@bestpracticemedia.com"
+        }
+      ],
+      "relevance": {
+        "score": 0.95,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Digital Marketing Agency in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://bestpracticemedia.com/locations/new-york/"
+      ]
+    },
+    {
+      "name": "Austin Williams",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "Google",
+          "link": "https://www.austinwilliams.com"
+        },
+        {
+          "platform": "Email",
+          "link": "mailto:info@austinwilliams.com"
+        },
+        {
+          "platform": "Phone",
+          "link": "tel:+16312316600"
+        }
+      ],
+      "relevance": {
+        "score": 0.95,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: New York Digital Marketing Agency."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.austinwilliams.com/contact-us/"
+      ]
+    },
+    {
+      "name": "VaynerMedia",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "Google",
+          "link": "https://vaynermedia.com"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions location 'New York'",
+          "AI review: Integrated Strategy, Creative and Media Agency in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://vaynermedia.com/"
+      ]
+    },
+    {
+      "name": "New York PR & Influencer Marketing Agency",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "Google",
+          "link": "https://theinfluence.com"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'founder'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Founder Ali Lasky leads a New York PR agency."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://theinfluence.com/new-york/"
+      ]
+    },
+    {
+      "name": "Kiki Von Glinow",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/kiki-von-glinow-09811b17"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'founder'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions 'ceo'",
+          "profile text mentions location 'New York'",
+          "AI review: Kiki Von Glinow is CEO of Toast Media Group in Brooklyn."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/kiki-von-glinow-09811b17"
+      ]
+    },
+    {
+      "name": "Jimmy Page",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/thejapage"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'founder'",
+          "profile text mentions location 'New York'",
+          "AI review: Jimmy Page is President and Owner of Hudson Creative in NYC."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/thejapage"
+      ]
+    },
+    {
+      "name": "Gabriel Shaoolian",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/gabrielshaoolian"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'founder'",
+          "profile text mentions 'ceo'",
+          "profile text mentions location 'New York'",
+          "AI review: Gabriel Shaoolian is CEO & Founder at Digital Silk in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/gabrielshaoolian"
+      ]
+    },
+    {
+      "name": "Eric Lituchy",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/ericlituchy"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'founder'",
+          "profile text mentions 'ceo'",
+          "profile text mentions location 'New York'",
+          "AI review: Eric Lituchy is Founder & CEO of Hunter Digital in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/ericlituchy"
+      ]
+    },
+    {
+      "name": "Pete Kennedy",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/petekennedy"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'founder'",
+          "profile text mentions location 'New York'",
+          "AI review: Pete Kennedy is Co-Founder of Agency Capital Partners in Melville, NY."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/petekennedy"
+      ]
+    },
+    {
+      "name": "Cali Ho",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/caliho"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'founder'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Cali Ho is Founder & CEO of Digital NYC Agency in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/caliho"
+      ]
+    },
+    {
+      "name": "Francis McGovern",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/francismcgovern"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'agency owner'",
+          "profile text mentions 'founder'",
+          "profile text mentions location 'New York'",
+          "AI review: Francis McGovern is a marketing agency owner in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/francismcgovern"
+      ]
+    },
+    {
+      "name": "Brian LeDonne",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/brianledonne"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions location 'New York'",
+          "AI review: Digital Creative Agency linked to New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/brianledonne"
+      ]
+    },
+    {
+      "name": "Rosa Qi Z.",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/qizhang-rosa"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'founder'",
+          "profile text mentions location 'New York'",
+          "AI review: Rosa Qi Z. is Founder of Queue Agency in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/qizhang-rosa"
+      ]
+    },
+    {
+      "name": "Steve DeFontes",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/stevedefontes"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'founder'",
+          "profile text mentions 'ceo'",
+          "profile text mentions location 'New York'",
+          "AI review: Steve DeFontes is Founder & CEO of Big Idea in New York City."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/stevedefontes"
+      ]
+    },
+    {
+      "name": "Svea Fina",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/svea-fina-456a70140"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'founder'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions 'ceo'",
+          "profile text mentions location 'New York'",
+          "AI review: Svea Fina is Founder & CEO of FINA marketing agency in NYC."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/svea-fina-456a70140"
+      ]
+    },
+    {
+      "name": "Anthony Espino",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/anthonyaespino"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'founder'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Anthony Espino is Founder at Miki Agency in Brooklyn, New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/anthonyaespino"
+      ]
+    },
+    {
+      "name": "Quinton S.",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/quintonjohn"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'founder'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Quinton S. is Founder of a boutique marketing agency in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/quintonjohn"
+      ]
+    },
+    {
+      "name": "Star Tech SEO",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "X",
+          "link": "https://x.com/startechseo"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Star Tech SEO is a digital marketing agency in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://x.com/startechseo"
+      ]
+    },
+    {
+      "name": "iPullRank Digital Marketing Agency",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "X",
+          "link": "https://x.com/ipullrank"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'founder'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Mike King is Founder & CEO of iPullRank agency in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://x.com/iPullRank"
+      ]
+    },
+    {
+      "name": "NEWMEDIA.COM",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "X",
+          "link": "https://x.com/newmedia"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'founder'",
+          "profile text mentions 'ceo'",
+          "profile text mentions location 'New York'",
+          "AI review: Steve Morris is founder and CEO of NEWMEDIA.COM in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://x.com/newmedia"
+      ]
+    },
+    {
+      "name": "HUNTER Digital Marketing Agency",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "X",
+          "link": "https://x.com/hunterdigitalm2"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: HUNTER is a full-service digital marketing agency in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://x.com/hunterdigitalm2"
+      ]
+    },
+    {
+      "name": "Maurice Rahmey",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "X",
+          "link": "https://x.com/mrahmey"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Maurice Rahmey is associated with a digital marketing agency in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://x.com/mrahmey"
+      ]
+    },
+    {
+      "name": "Acronym",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "X",
+          "link": "https://x.com/acronym_media"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions 'ceo'",
+          "profile text mentions location 'New York'",
+          "AI review: Stephanie Hart is CEO of Acronym digital marketing agency in New York City."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://x.com/Acronym_Media"
+      ]
+    },
+    {
+      "name": "Tinuiti",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "X",
+          "link": "https://x.com/tinuiti"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions location 'New York'",
+          "AI review: Media agency in New York, New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://x.com/Tinuiti"
+      ]
+    },
+    {
+      "name": "copifycom",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "X",
+          "link": "https://x.com/copifycom"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Copify is a digital marketing agency in New York, USA."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://x.com/copifycom"
+      ]
+    },
+    {
+      "name": "MacroHype",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "X",
+          "link": "https://x.com/macrohype"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: MacroHype is a digital marketing agency in New York City."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://x.com/MacroHype"
+      ]
+    },
+    {
+      "name": "Niki Jones Agency",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "X",
+          "link": "https://x.com/nikijonesagency"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions location 'New York'",
+          "AI review: Agency built in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://x.com/nikijonesagency"
+      ]
+    },
+    {
+      "name": "Larry Gurreri",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "X",
+          "link": "https://x.com/larrygurreri"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'founder'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions 'ceo'",
+          "profile text mentions location 'New York'",
+          "AI review: Larry Gurreri is a marketing agency CEO & Founder living in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://x.com/larrygurreri"
+      ]
+    },
+    {
+      "name": "Markacy",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "X",
+          "link": "https://x.com/gomarkacy"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Markacy is a performance marketing agency based in NYC."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://x.com/gomarkacy"
+      ]
+    },
+    {
+      "name": "Imagination-Marketing a PR and Marketing Agency",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "X",
+          "link": "https://x.com/marketingimagin"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'founder'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Imagination-Marketing is a PR and marketing agency operating in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://x.com/marketingimagin"
+      ]
+    },
+    {
+      "name": "Moonlit NY",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@moonlitny3539"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Moonlit NY is a New York based Digital Marketing Agency."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@moonlitny3539)"
+      ]
+    },
+    {
+      "name": "Cynthia Irons & High Peaks Marketing",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@cynthiairons"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'founder'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Cynthia Irons is founder of High Peaks Marketing agency."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@cynthiairons)"
+      ]
+    },
+    {
+      "name": "Sosemo",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@sosemonyc"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions location 'New York'",
+          "AI review: Digital services agency headquartered in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@sosemonyc)"
+      ]
+    },
+    {
+      "name": "Copify Digital Marketing Agency",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@copifycom"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Copify is a digital marketing agency working in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@copifycom)"
+      ]
+    },
+    {
+      "name": "Software Pro Digital",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@softwareprodigital"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'founder'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Software Pro Digital is a New York digital marketing agency in Manhattan."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@softwareprodigital)"
+      ]
+    },
+    {
+      "name": "Romana's Digital Top  Marketing Agency New York",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@romanasdigitaltopmarketing3001"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Romana's Digital is a top marketing agency in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@romanasdigitaltopmarketing3001)"
+      ]
+    },
+    {
+      "name": "High Key Marketing",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@highkeymarketing"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: High Key Marketing is a boutique marketing agency specializing in digital strategy."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@highkeymarketing)"
+      ]
+    },
+    {
+      "name": "CgColors - New York's Web Design & Digital Marketing Agency",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@cgcolors"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: CgColors is an IT and internet marketing agency based in New York, USA."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@cgcolors)"
+      ]
+    },
+    {
+      "name": "Wisdom Digital Marketing",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@wisdomdigitalmarketingagency"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Digital marketing agency in New York."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@wisdomdigitalmarketingagency)"
+      ]
+    },
+    {
+      "name": "Digital Marketing Agency",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "Instagram",
+          "link": "https://www.instagram.com/dupronline_/"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Digital Marketing Agency in New York, NY."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.instagram.com/dupronline_/"
+      ]
+    },
+    {
+      "name": "Direct Agents",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "Instagram",
+          "link": "https://www.instagram.com/directagents/"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: Full-Service Marketing Agency in New York, NY."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.instagram.com/directagents/"
+      ]
+    },
+    {
+      "name": "NYC",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "Instagram",
+          "link": "https://www.instagram.com/thesocialagency/"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions location 'NYC'",
+          "AI review: Social agency in NYC."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.instagram.com/thesocialagency/"
+      ]
+    },
+    {
+      "name": "HUNTER Digital",
+      "location": "New York, USA",
+      "social_link": [
+        {
+          "platform": "Instagram",
+          "link": "https://www.instagram.com/hunterdigitalnyc/"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'digital marketing'",
+          "profile text mentions 'marketing agency'",
+          "profile text mentions location 'New York'",
+          "AI review: NYC Digital Marketing Agency."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.instagram.com/hunterdigitalnyc/"
+      ]
+    }
+  ],
+  "understanding": {
+    "is_valid_query": true,
+    "interest": "Digital marketing",
+    "audience": "Agency owners",
+    "location": {
+      "city": "New York",
+      "state": "New York",
+      "country": "USA",
+      "country_code": "US"
+    },
+    "target_type": "individual",
+    "keywords": [
+      "digital marketing",
+      "agency owner",
+      "founder",
+      "marketing agency",
+      "ceo"
+    ],
+    "search_terms": [
+      "digital marketing agency owner",
+      "marketing agency founder"
+    ],
+    "location_aliases": [
+      "NYC",
+      "New York City",
+      "New York"
+    ]
+  },
+  "understanding_source": "llm",
+  "platforms": [
+    {
+      "platform": "Google",
+      "status": "ok",
+      "profiles_found": 7,
+      "message": null
+    },
+    {
+      "platform": "LinkedIn",
+      "status": "ok",
+      "profiles_found": 20,
+      "message": null
+    },
+    {
+      "platform": "X",
+      "status": "ok",
+      "profiles_found": 18,
+      "message": null
+    },
+    {
+      "platform": "YouTube",
+      "status": "ok",
+      "profiles_found": 20,
+      "message": null
+    },
+    {
+      "platform": "Instagram",
+      "status": "ok",
+      "profiles_found": 8,
+      "message": null
+    },
+    {
+      "platform": "WhatsApp",
+      "status": "ok",
+      "profiles_found": 0,
+      "message": null
+    },
+    {
+      "platform": "Facebook",
+      "status": "ok",
+      "profiles_found": 13,
+      "message": null
+    },
+    {
+      "platform": "Email",
+      "status": "ok",
+      "profiles_found": 2,
+      "message": null
+    },
+    {
+      "platform": "Threads",
+      "status": "ok",
+      "profiles_found": 19,
+      "message": null
+    }
+  ]
+}

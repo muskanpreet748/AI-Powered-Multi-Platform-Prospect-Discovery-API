@@ -1,0 +1,652 @@
+{
+  "success": true,
+  "query": "Football lovers in Washington DC in USA",
+  "total_prospects": 22,
+  "prospects": [
+    {
+      "name": "BreakingT",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "Google",
+          "link": "https://breakingt.com"
+        },
+        {
+          "platform": "Email",
+          "link": "mailto:contact@breakingt.com"
+        },
+        {
+          "platform": "Phone",
+          "link": "tel:+17032499147"
+        }
+      ],
+      "relevance": {
+        "score": 0.95,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'football'",
+          "profile text mentions location 'Washington DC'",
+          "AI review: Retailer offering Washington DC sports fan gear."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://breakingt.com/pages/dc-gifts?srsltid=AYCX9vLaUHkbMYMTaYy7wQfZQ2Dfm--IQT6w5TZ8g8LIG80vaBGrln0j"
+      ]
+    },
+    {
+      "name": "TravelFutbolFan",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@travelfutbolfan"
+        },
+        {
+          "platform": "Email",
+          "link": "mailto:travelfutbolfan@gmail.com"
+        }
+      ],
+      "relevance": {
+        "score": 0.95,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions location 'Washington DC'",
+          "AI review: Fútbol content creator and Colombia supporter based in DC."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@travelfutbolfan)"
+      ]
+    },
+    {
+      "name": "Burgundy Gold Football Fan Gift",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "Google",
+          "link": "https://www.etsy.com"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'football'",
+          "profile text mentions 'football fan'",
+          "profile text mentions location 'Washington DC'",
+          "AI review: Business selling Washington DC football fan gifts."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.etsy.com/au/listing/4557001049/washington-commanders-gift-box"
+      ]
+    },
+    {
+      "name": "James Galbally",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/james-galbally-815038380"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'football'",
+          "profile text mentions 'football fan'",
+          "profile text mentions location 'Washington DC'",
+          "AI review: Individual in Washington DC who is a football fan."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/james-galbally-815038380"
+      ]
+    },
+    {
+      "name": "Erik Leibovitz",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/erik-leibovitz-a366025b"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'nfl'",
+          "profile text mentions location 'Washington DC'",
+          "AI review: NFL partnership development professional in Washington DC area."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/erik-leibovitz-a366025b"
+      ]
+    },
+    {
+      "name": "Kevin Clark",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/kevin-clark-8174606"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions location 'Washington DC'",
+          "AI review: FIFA Venue Operations Director in Washington, DC."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/kevin-clark-8174606"
+      ]
+    },
+    {
+      "name": "Ethan Cadeaux",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/ethancadeaux"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions location 'D.C.'",
+          "AI review: Washington, D.C.-based sports reporter."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/ethancadeaux"
+      ]
+    },
+    {
+      "name": "Terry Roy",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/terry-roy-bsg"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'football'",
+          "profile text mentions 'nfl'",
+          "profile text mentions location 'Washington DC'",
+          "AI review: Commanders football hospitality professional in Washington DC."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/terry-roy-bsg"
+      ]
+    },
+    {
+      "name": "Craig Hoffman",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/craighoffmanmedia"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'football'",
+          "profile text mentions location 'Washington DC'",
+          "AI review: Radio host for Washington football show in DC."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/craighoffmanmedia"
+      ]
+    },
+    {
+      "name": "Jon Radke",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/jonradke"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'nfl'",
+          "profile text mentions location 'D.C.'",
+          "AI review: Professional associated with Washington NFL games."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/jonradke"
+      ]
+    },
+    {
+      "name": "Haley Brunner",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/haleyfbrunner"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'nfl'",
+          "profile text mentions location 'Washington DC'",
+          "AI review: NFL Global Fan Engagement senior director."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/haleyfbrunner"
+      ]
+    },
+    {
+      "name": "Octavian Barnes",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/octavian-barnes-a4503832"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions location 'D.C.'",
+          "AI review: Hospitality at Washington Redskins in Washington D.C."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/octavian-barnes-a4503832"
+      ]
+    },
+    {
+      "name": "JP Finlay",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/jpfinlay"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions location 'Washington DC'",
+          "AI review: Commanders Insider and radio co-host in Washington DC."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/jpfinlay"
+      ]
+    },
+    {
+      "name": "Corinne Weltman",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/cweltman"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions location 'Washington DC'",
+          "AI review: Sr. Director at Washington Commanders in Washington DC."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/cweltman"
+      ]
+    },
+    {
+      "name": "Morgan Faulkner",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "LinkedIn",
+          "link": "https://www.linkedin.com/in/morgan-faulkner-8284231b0"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions location 'Washington DC'",
+          "AI review: Community Relations Manager with Washington DC background."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.linkedin.com/in/morgan-faulkner-8284231b0"
+      ]
+    },
+    {
+      "name": "@lamore",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "X",
+          "link": "https://x.com/lamore"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'football'",
+          "profile text mentions location 'Washington DC'",
+          "AI review: Football fan rallying in Washington DC."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://x.com/lamore/status/1682379230741495809"
+      ]
+    },
+    {
+      "name": "Da Commissioner's Corner of the DMV Podcast",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@dmvcommish"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'football'",
+          "profile text mentions 'nfl'",
+          "profile text mentions location 'D.C.'",
+          "AI review: Creator of a Washington DC area fantasy football podcast."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@dmvcommish)"
+      ]
+    },
+    {
+      "name": "Tip of the Spear DC Football Sports Podcast",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@tipofthespeardcfootballpodcast"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'football'",
+          "profile text mentions location 'DC'",
+          "AI review: Washington football fans running a sports podcast."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@tipofthespeardcfootballpodcast)"
+      ]
+    },
+    {
+      "name": "@misha.sher",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "Facebook",
+          "link": "https://www.facebook.com/misha.sher"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'football'",
+          "profile text mentions location 'Washington DC'",
+          "AI review: Football fan discussing Washington DC game experience."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.facebook.com/misha.sher/posts/came-for-the-football-left-without-a-voice-dc-you-didnt-disappoint-%EF%B8%8F/10164804702859799/"
+      ]
+    },
+    {
+      "name": "@brianmitchellofficial",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "Facebook",
+          "link": "https://www.facebook.com/brianmitchellofficial"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'nfl'",
+          "profile text mentions location 'DC'",
+          "AI review: Former football player involved in DC NFL draft event."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.facebook.com/BrianMitchellOfficial/videos/officials-from-events-dc-washington-commanders-and-nfl-unveil-the-dc-countdown-c/1168512222327443/"
+      ]
+    },
+    {
+      "name": "@desjudicata",
+      "location": "Washington DC, USA",
+      "social_link": [
+        {
+          "platform": "Threads",
+          "link": "https://www.threads.com/@desjudicata"
+        }
+      ],
+      "relevance": {
+        "score": 0.9,
+        "status": "confirmed",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'football'",
+          "profile text mentions location 'Washington DC'",
+          "AI review: Football fan posting about Washington DC game."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "https://www.threads.com/@desjudicata/post/DgD72NqmFAk/we-sold-out-a-stadium-we-provided-fans-an-incredible-experience-in-dc-with-an/"
+      ]
+    },
+    {
+      "name": "Washington Football Enjoyer",
+      "location": "USA",
+      "social_link": [
+        {
+          "platform": "YouTube",
+          "link": "https://www.youtube.com/@1323gamertv"
+        }
+      ],
+      "relevance": {
+        "score": 0.75,
+        "status": "likely",
+        "interest_match": true,
+        "location_match": true,
+        "evidence": [
+          "profile text mentions 'football'",
+          "profile text mentions location 'channel country US'",
+          "AI review: Washington football fan channel."
+        ],
+        "evaluated_by": "rules+llm"
+      },
+      "sources": [
+        "YouTube Data API v3 (https://www.youtube.com/@1323gamertv)"
+      ]
+    }
+  ],
+  "understanding": {
+    "is_valid_query": true,
+    "interest": "Football",
+    "audience": "Football lovers",
+    "location": {
+      "city": "Washington DC",
+      "state": "District of Columbia",
+      "country": "USA",
+      "country_code": "US"
+    },
+    "target_type": "individual",
+    "keywords": [
+      "football",
+      "soccer",
+      "nfl",
+      "football fan",
+      "sports lover"
+    ],
+    "search_terms": [
+      "football fan",
+      "nfl fan",
+      "football lover"
+    ],
+    "location_aliases": [
+      "DC",
+      "D.C.",
+      "Washington D.C."
+    ]
+  },
+  "understanding_source": "llm",
+  "platforms": [
+    {
+      "platform": "Google",
+      "status": "ok",
+      "profiles_found": 7,
+      "message": null
+    },
+    {
+      "platform": "LinkedIn",
+      "status": "ok",
+      "profiles_found": 18,
+      "message": null
+    },
+    {
+      "platform": "X",
+      "status": "ok",
+      "profiles_found": 18,
+      "message": null
+    },
+    {
+      "platform": "YouTube",
+      "status": "ok",
+      "profiles_found": 16,
+      "message": null
+    },
+    {
+      "platform": "Instagram",
+      "status": "ok",
+      "profiles_found": 0,
+      "message": null
+    },
+    {
+      "platform": "WhatsApp",
+      "status": "ok",
+      "profiles_found": 0,
+      "message": null
+    },
+    {
+      "platform": "Facebook",
+      "status": "ok",
+      "profiles_found": 9,
+      "message": null
+    },
+    {
+      "platform": "Email",
+      "status": "ok",
+      "profiles_found": 2,
+      "message": null
+    },
+    {
+      "platform": "Threads",
+      "status": "ok",
+      "profiles_found": 10,
+      "message": null
+    }
+  ]
+}
